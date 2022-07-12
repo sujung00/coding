@@ -1,5 +1,5 @@
-import java.util.Locale;
-import java.util.Map;
+package Java1;
+
 import java.util.Scanner;
 
 public class Main {
