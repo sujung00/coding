@@ -5,17 +5,13 @@ import java.util.Scanner;
 public class Main {
     public int solution(int num){
         int answer = 0;
-        int[] arr = new int[num+1];
-        arr[0] = arr[1] = 0;
-        for (int i = 2; i <= num; i++) {  arr[i] = i;  }
+        int[] ch = new int[num+1];
 
-        for (int i = 2; i <= (int)Math.sqrt(num); i++) {
-            if(arr[i] == 0) continue;
-            for (int j = i+i ; j <= num; j+=i) {  arr[j] = 0; }
-        }
-
-        for (int i = 0; i < arr.length; i++) {
-            if(arr[i] != 0) answer++;
+        for (int i = 2; i <= num; i++){
+            if (ch[i] == 0){
+                answer++;
+                for (int j = i; j <= num; j=j+i) ch[j] = 1;
+            }
         }
 
         return answer;
