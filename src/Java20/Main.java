@@ -27,7 +27,7 @@ public class Main {
         }
 
         for (int x : T.solution(n, arr)) {
-            System.out.println(x + " ");
+            System.out.print(x + " ");
         }
     }
 }
