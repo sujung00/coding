@@ -4,14 +4,17 @@ import java.util.Scanner;
 
 public class Main {
     public int solution(int n, int[] arr){
-        int answer = 0, cnt = 0;
-        for (int i = 0; i < n; i++){
+        int answer = 0;
+        int grade = 0;
+
+        for (int i =0; i < n; i++){
+
             if (arr[i] == 1) {
-                cnt++;
-                answer += cnt;
-            }
-            else cnt = 0;
+                grade++;
+                answer += grade;
+            } else grade = 0;
         }
+
         return answer;
     }
 
@@ -21,9 +24,11 @@ public class Main {
 
         int n = scanner.nextInt();
         int[] arr = new int[n];
+
         for (int i = 0; i < n; i++){
             arr[i] = scanner.nextInt();
         }
+
         System.out.println(T.solution(n, arr));
     }
 }
