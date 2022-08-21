@@ -5,10 +5,12 @@ import java.util.Scanner;
 
 public class Main {
     public String solution(String a, String b){
+        //map.containsKey('A')
         String answer = "YES";
         HashMap<Character, Integer> map = new HashMap<>();
+
         for (char x : a.toCharArray()){
-            map.put(x, map.getOrDefault(x, 0) + 1);
+            map.put(x, map.getOrDefault(x, 0)+1);
         }
         for (char x : b.toCharArray()){
             if (!map.containsKey(x) || map.get(x) == 0) return "NO";
