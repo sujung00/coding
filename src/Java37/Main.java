@@ -7,6 +7,7 @@ public class Main {
     public String solution(String str){
         String answer = "YES";
         Stack<Character> stack = new Stack<>();
+
         for (char x : str.toCharArray()){
             if (x == '(') stack.push(x);
             else {
@@ -15,6 +16,7 @@ public class Main {
             }
         }
         if (!stack.isEmpty()) return "NO";
+
         return answer;
     }
 
