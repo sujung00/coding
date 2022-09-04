@@ -3,7 +3,7 @@ package Java39;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class Main {
+public class  Main {
     public int solution(int[][] board, int[] moves){
         int answer = 0;
         Stack<Integer> stack = new Stack<>();
