@@ -5,16 +5,29 @@ import java.util.Scanner;
 public class Main {
     public int[] solution(int n, int[] arr){
 
-        int idx, tmp;
+//        int idx, tmp;
+//        for (int i = 0; i < n-1; i++){
+//            idx = i;
+//            for (int j = i+1; j < n; j++){
+//                if (arr[j] < arr[idx]) idx = j;
+//            }
+//            tmp = arr[i];
+//            arr[i] = arr[idx];
+//            arr[idx] = tmp;
+//        }
+
+        int min, tmp;
         for (int i = 0; i < n-1; i++){
-            idx = i;
+            min = i;
             for (int j = i+1; j < n; j++){
-                if (arr[j] < arr[idx]) idx = j;
+                if (arr[min] > arr[j]){
+                    tmp = arr[min];
+                    arr[min] = arr[j];
+                    arr[j] = tmp;
+                }
             }
-            tmp = arr[i];
-            arr[i] = arr[idx];
-            arr[idx] = tmp;
         }
+
         return arr;
     }
 
