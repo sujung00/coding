@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Main {
     public int[] solution(int size, int n, int[] arr){
         int[] cache = new int[size];
+
         for (int x : arr){
             int pos = -1;
             for (int i = 0; i < size; i++) if (x == cache[i]) pos = i;
@@ -13,8 +14,7 @@ public class Main {
                     cache[i] = cache[i-1];
                 }
                 cache[0] = x;
-            }
-            else {
+            } else {
                 for (int i = pos; i >= 1; i--){
                     cache[i] = cache[i-1];
                 }
