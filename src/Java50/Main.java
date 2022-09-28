@@ -10,7 +10,9 @@ public class Main {
         int[] tmp = arr.clone();
         Arrays.sort(tmp);
         for (int i = 0; i < n; i++){
-            if (arr[i] != tmp[i]) answer.add(i+1);
+            if (arr[i] != tmp[i]){
+                answer.add(i+1);
+            }
         }
 
         return answer;
