@@ -15,7 +15,7 @@ public class Main {
                 answer = mid+1;
                 break;
             }
-            if (arr[mid] > m) rt = mid -1;
+            if (arr[mid] > m) rt = mid-1;
             else lt = mid+1;
         }
 
