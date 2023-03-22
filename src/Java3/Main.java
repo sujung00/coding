@@ -5,12 +5,13 @@ import java.util.Scanner;
 //split
 public class Main {
     public String solution(String str){
-        String answer ="";
-        String[] words = str.split(" ");
-
-        for (String w : words) {
-            if (w.length() > answer.length()){
-                answer = w;
+        int len = Integer.MIN_VALUE;
+        String answer = "";
+        String[] strArr = str.split(" ");
+        for (int i = 0; i < strArr.length; i++){
+            if (strArr[i].length() > len) {
+                len = strArr[i].length();
+                answer = strArr[i];
             }
         }
         return answer;
