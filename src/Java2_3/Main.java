@@ -1,4 +1,4 @@
-package Java15;
+package Java2_3;
 
 import java.util.Scanner;
 
