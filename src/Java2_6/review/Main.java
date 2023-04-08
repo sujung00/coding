@@ -1,4 +1,4 @@
-package Java18.review;
+package Java2_6.review;
 
 import java.util.ArrayList;
 import java.util.Scanner;
