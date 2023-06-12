@@ -2,19 +2,16 @@ package Java1_7;
 
 import java.util.Scanner;
 
+// 2023.06.12
 public class Main {
     public String solution(String str){
         String answer = "YES";
 
-        str = str.toLowerCase();
-        int lt = 0, rt = str.length()-1;
-        while (lt < rt){
-            if (str.charAt(lt) == str.charAt(rt)){
-                lt++;
-                rt--;
-            } else {
+        str = str.toUpperCase();
+        for (int i = 0; i < str.length()/2; i++){
+            if (str.charAt(i) != str.charAt(str.length()-1-i)){
                 answer = "NO";
-                break;
+                return answer;
             }
         }
 
