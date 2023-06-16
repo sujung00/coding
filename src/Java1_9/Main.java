@@ -3,13 +3,16 @@ package Java1_9;
 import java.util.Scanner;
 
 public class Main {
-    public int solution(String str) {
-        int answer;
+    public int solution(String str){
+        String answer = "";
 
-        str = str.toUpperCase().replaceAll("[A-Z]", "");
-        answer = Integer.parseInt(str);
+        for (int i = 0; i < str.length(); i++){
+            if (!Character.isAlphabetic(str.charAt(i))){
+                answer += str.charAt(i);
+            }
+        }
 
-        return answer;
+        return Integer.parseInt(answer);
     }
     public static void main(String[] args) {
         Main T = new Main();
