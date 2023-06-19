@@ -2,18 +2,16 @@ package Java2_5;
 
 import java.util.Scanner;
 
+// 2023.06.19*
 public class Main {
     public int solution(int n){
         int answer = 0;
+        int[] prismNum = new int[n+1];
 
-        int[] ch = new int[n+1];
-        for (int i = 2; i < ch.length; i++){
-            if (ch[i] == 0){
+        for (int i = 2; i <= n; i++){
+            if (prismNum[i] == 0){
                 answer++;
-                // i의 배수들의 값을 1로 만든다.
-                for (int j = i; j < ch.length; j = j+i){
-                    ch[j] = 1;
-                }
+                for (int j = i; j <= n; j=j+i) prismNum[j] = 1;
             }
         }
 
