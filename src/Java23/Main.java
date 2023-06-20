@@ -28,7 +28,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        Java22.Main T = new Java22.Main();
+        Java2_10.Main T = new Java2_10.Main();
         Scanner scanner = new Scanner(System.in);
 
         int n = scanner.nextInt();

@@ -1,19 +1,18 @@
 package Java2_8;
 
-import java.util.Scanner;
+import java.util.*;
 
+// 2023.06.20*
 public class Main {
-    public int[] solution(int n, int[] scores){
+    public int[] solution(int n, Integer[] numbers){
         int[] answer = new int[n];
 
         for (int i = 0; i < n; i++){
-            int cnt = 1;
+            int grade = 1;
             for (int j = 0; j < n; j++){
-                if (scores[i] < scores[j]){
-                    cnt++;
-                }
+                if (numbers[j] > numbers[i]) grade++;
             }
-            answer[i] = cnt;
+            answer[i] = grade;
         }
 
         return answer;
@@ -22,11 +21,11 @@ public class Main {
         Main T = new Main();
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
-        int[] scores = new int[n];
+        Integer[] numbers = new Integer[n];
         for (int i = 0; i < n; i++){
-            scores[i] = scanner.nextInt();
+            numbers[i] = scanner.nextInt();
         }
-        for (int x : T.solution(n, scores)){
+        for (int x : T.solution(n, numbers)){
             System.out.print(x + " ");
         }
     }
