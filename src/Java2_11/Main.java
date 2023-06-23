@@ -4,22 +4,22 @@ import java.util.Scanner;
 
 // 2023.06.21*
 public class Main {
-    public int solution(int n, int[][] numbers){
-        int answer = 0; // 몇 번 학생이 임시 반장인지
+    public int solution(int n, int[][] arr){
+        int answer = 0;
 
-        int maxCnt = Integer.MIN_VALUE;
-        for (int i = 1; i <= n; i++){
+        int max = Integer.MIN_VALUE;
+        for (int i = 0; i < n; i++){ // 학생 i
             int cnt = 0;
-            for (int j = 1; j <= n; j++){
-                for (int k = 1; k <= 5; k++){
-                    if (numbers[i][k] == numbers[j][k]) {
+            for (int j = 0; j < n; j++){ // n명 학생
+                for (int k = 0; k < 5; k++){ // 5학년
+                    if (arr[j][k] == arr[i][k]) {
                         cnt++;
                         break;
                     }
                 }
             }
-            if (cnt > maxCnt) {
-                maxCnt = cnt;
+            if (cnt > max){
+                max = cnt;
                 answer = i+1;
             }
         }
@@ -30,12 +30,12 @@ public class Main {
         Main T = new Main();
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
-        int[][] numbers = new int[n+1][6];
-        for (int i = 1; i <= n; i++){
-            for (int j = 1; j <= 5; j++){
-                numbers[i][j] = scanner.nextInt();
+        int[][] arr = new int[n][5];
+        for (int i = 0; i < n; i++){
+            for (int j = 0; j < 5; j++){
+                arr[i][j] = scanner.nextInt();
             }
         }
-        System.out.println(T.solution(n, numbers));
+        System.out.println(T.solution(n, arr));
     }
 }

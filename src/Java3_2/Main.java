@@ -14,8 +14,8 @@ public class Main {
             if (arr1[p1] == arr2[p2]){
                 answer.add(arr1[p1++]);
                 p2++;
-            } else if (arr1[p1] < arr2[p2]) p1++;
-            else p2++;
+            } else if (arr1[p1] > arr2[p2]) p2++;
+            else p1++;
         }
 
         return answer;
