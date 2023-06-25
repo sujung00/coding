@@ -2,7 +2,7 @@ package Java3_6;
 
 import java.util.Scanner;
 
-// 2023.06.24 =*
+// 2023.06.24*
 public class Main {
     public int solution(int n, int k, int[] arr){
         int answer = 0;
