@@ -10,15 +10,14 @@ public class Main {
         char answer = ' ';
 
         Map<Character, Integer> map = new HashMap<>();
-
-        for (char c : str.toCharArray()){
-            map.put(c, map.getOrDefault(c, 0)+1);
+        for (char x : str.toCharArray()){
+            map.put(x, map.getOrDefault(x, 0)+1);
         }
         int max = Integer.MIN_VALUE;
-        for (char key : map.keySet()){
-            if (map.get(key) > max){
-                max = map.get(key);
-                answer = key;
+        for (char x : map.keySet()){
+            if (map.get(x) > max){
+                max = map.get(x);
+                answer = x;
             }
         }
 

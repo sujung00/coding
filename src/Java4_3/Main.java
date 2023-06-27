@@ -9,16 +9,16 @@ public class Main {
     public ArrayList<Integer> solution(int n, int k, int[] arr){
         ArrayList<Integer> answer = new ArrayList<>();
 
-        Map<Integer, Integer> HM = new HashMap<>();
+        Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < k-1; i++){
-            HM.put(arr[i], HM.getOrDefault(arr[i], 0)+1);
+            map.put(arr[i], map.getOrDefault(arr[i], 0)+1);
         }
         int lt = 0;
         for (int rt = k-1; rt < n; rt++){
-            HM.put(arr[rt], HM.getOrDefault(arr[rt], 0)+1);
-            answer.add(HM.size());
-            HM.put(arr[lt], HM.get(arr[lt])-1);
-            if (HM.get(arr[lt]) == 0) HM.remove(arr[lt]);
+            map.put(arr[rt], map.getOrDefault(arr[rt], 0)+1);
+            answer.add(map.size());
+            map.put(arr[lt], map.get(arr[lt])-1); // lt 값 빼기
+            if (map.get(arr[lt]) == 0) map.remove(arr[lt]);
             lt++;
         }
 
@@ -34,7 +34,7 @@ public class Main {
             arr[i] = scanner.nextInt();
         }
         for (int x : T.solution(n, k, arr)){
-            System.out.print(x +" ");
+            System.out.print(x + " ");
         }
     }
 }

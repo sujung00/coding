@@ -1,40 +1,38 @@
 package Java4_4;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
-    public int solution(String str1, String str2){
+    public int solution(String a, String b){
         int answer = 0;
 
-        HashMap<Character, Integer> am = new HashMap<>();
-        HashMap<Character, Integer> bm = new HashMap<>();
-        for (char x : str2.toCharArray()){
-            bm.put(x, bm.getOrDefault(x, 0)+1);
-            int L = str2.length()-1;
-            for (int i = 0; i < L; i++){
-                am.put(str1.charAt(i), am.getOrDefault(str1.charAt(i), 0)+1);
-                int lt = 0;
-                for (int rt = L; rt < str1.length(); rt++){
-                    am.put(str1.charAt(rt), am.getOrDefault(str1.charAt(i), 0)+1);
-                    if (am.equals(bm)) answer++;
-                    am.put(str1.charAt(lt), am.get(str1.charAt(lt))-1);
-                    if (am.get(str1.charAt(lt))==0){
-                        am.remove(str1.charAt(lt));
-                    }
-                    lt++;
-                }
-            }
+        // b map
+        Map<Character, Integer> map = new HashMap<>();
+        for (int i = 0; i < b.length(); i++){
+            map.put(b.charAt(i), map.getOrDefault(b.charAt(i), 0)+1);
         }
+        // a map
+        Map<Character, Integer> mapA = new HashMap<>();
+        for (int i = 0; i < b.length()-1; i++){
+            mapA.put(a.charAt(i), mapA.getOrDefault(a.charAt(i), 0)+1);
+        }
+        int lt = 0;
+        for (int rt = b.length()-1; rt < a.length(); rt++){
+            mapA.put(a.charAt(rt), mapA.getOrDefault(a.charAt(rt), 0)+1);
+            if (mapA.equals(map)) answer++;
+            mapA.put(a.charAt(lt), mapA.get(a.charAt(lt))-1);
+            if (mapA.get(a.charAt(lt)) == 0) mapA.remove(a.charAt(lt));
+            lt++;
+        }
+
 
         return answer;
     }
     public static void main(String[] args) {
         Main T = new Main();
         Scanner scanner = new Scanner(System.in);
-        String str1 = scanner.next();
-        String str2 = scanner.next();
-        System.out.println(T.solution(str1, str2));
+        String a = scanner.next();
+        String b = scanner.next();
+        System.out.println(T.solution(a, b));
     }
 }
