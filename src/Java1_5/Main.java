@@ -4,30 +4,25 @@ import java.util.Scanner;
 
 // 2023.06.10 ^
 public class Main {
-    public String solution(String str) {
-        String answer = "";
+    public int solution(int n){
+        int answer = 0;
 
-        char[] chars = str.toCharArray();
-        int lt = 0, rt = chars.length-1;
-        while (lt < rt) {
-            if (!Character.isAlphabetic(chars[lt])) lt++;
-            else if (!Character.isAlphabetic(chars[rt])) rt--;
-            else {
-                char tmp = chars[lt];
-                chars[lt] = chars[rt];
-                chars[rt] = tmp;
-                lt++;
-                rt--;
+        int[] arr = new int[n+1];
+        for (int i = 2; i < n+1; i++){
+            if (arr[i] == 0){
+                answer++;
+                for (int j = i; j < n+1; j = j+i){
+                    arr[j] = 1;
+                }
             }
         }
-        answer = String.valueOf(chars);
 
-        return  answer;
+        return answer;
     }
     public static void main(String[] args) {
         Main T = new Main();
         Scanner scanner = new Scanner(System.in);
-        String str = scanner.next();
-        System.out.println(T.solution(str));
+        int n = scanner.nextInt();
+        System.out.println(T.solution(n));
     }
 }
