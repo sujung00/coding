@@ -1,14 +1,16 @@
-package Java49;
+package Java6_6;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
-    public String solution(int n, int[] arr){
-        String answer = "U";
-        Arrays.sort(arr); //오름차순 정렬 후
-        for (int i = 0; i < n-1; i++){
-            if (arr[i] == arr[i+1]) return "D"; //같은 것이 있으면 D 리턴
+    public ArrayList<Integer> solution(int n, int[] arr){
+        ArrayList<Integer> answer = new ArrayList<>();
+        int[] tmp = arr.clone();
+        Arrays.sort(tmp);
+        for (int i = 0; i < n; i++){
+            if (arr[i] != tmp[i]) answer.add(i+1);
         }
 
         return answer;
@@ -16,12 +18,13 @@ public class Main {
     public static void main(String[] args) {
         Main T = new Main();
         Scanner scanner = new Scanner(System.in);
-
         int n = scanner.nextInt();
         int[] arr = new int[n];
         for (int i = 0; i < n; i++) {
             arr[i] = scanner.nextInt();
         }
-        System.out.println(T.solution(n, arr));
+        for (int x : T.solution(n, arr)){
+            System.out.print(x + " ");
+        }
     }
 }
