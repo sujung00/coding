@@ -4,7 +4,7 @@ import java.util.*;
 
 // 2023.06.28*
 public class Main {
-    public int solution(int n, int k, Integer[] arr){
+    public int solution(int n, int k, int[] arr){
         int answer = -1;
 
         TreeSet<Integer> Tset = new TreeSet<>(Collections.reverseOrder());
@@ -18,10 +18,7 @@ public class Main {
         int cnt = 0;
         for (int x : Tset){
             cnt++;
-            if (cnt == k) {
-                answer = x;
-                break;
-           }
+            if (cnt == k) return x;
         }
 
         return answer;
@@ -31,7 +28,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
         int k = scanner.nextInt();
-        Integer[] arr = new Integer[n];
+        int[] arr = new int[n];
         for (int i = 0; i < n; i++){
             arr[i] = scanner.nextInt();
         }

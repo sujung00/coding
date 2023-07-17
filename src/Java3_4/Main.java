@@ -5,13 +5,22 @@ import java.util.Scanner;
 // 2023.06.23*
 public class Main {
     public int solution(int n, int m, int[] arr){
-        int answer = 0, sum = 0, lt = 0;
+        int answer = 0;
+
+        int sum = 0, lt = 0;
         for (int rt = 0; rt < n; rt++){
             sum += arr[rt];
-            if (sum == m) answer++;
             while (sum >= m){
-                sum -= arr[lt++];
-                if (sum == m) answer++;
+                if (sum == m){
+                    answer++;
+                    break;
+                }else {
+                    sum -= arr[lt++];
+                    if (sum == m){
+                        answer++;
+                        break;
+                    }
+                }
             }
         }
 
