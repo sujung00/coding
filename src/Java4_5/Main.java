@@ -18,7 +18,9 @@ public class Main {
         int cnt = 0;
         for (int x : Tset){
             cnt++;
-            if (cnt == k) return x;
+            if (cnt == k){
+                return x;
+            }
         }
 
         return answer;

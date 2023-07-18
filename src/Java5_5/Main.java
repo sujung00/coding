@@ -10,11 +10,13 @@ public class Main {
 
         Stack<Character> stack = new Stack<>();
         for (int i = 0; i < str.length(); i++){
-            if (str.charAt(i) == '(') stack.push('(');
-            else {
+            if (str.charAt(i) == '('){
+                stack.push(str.charAt(i));
+            } else {
                 stack.pop();
-                if (str.charAt(i-1) == '(') answer += stack.size();
-                else answer++;
+                if (str.charAt(i-1) == '(') { // 레이저이면
+                    answer += stack.size();
+                } else answer++; // 막대기 끝이면
             }
         }
 

@@ -5,26 +5,32 @@ import java.util.Stack;
 
 // 2023.06.29
 public class Main {
-    public Stack<Character> solution(String str){
+    public String solution(String str){
+        String answer = "";
+
         Stack<Character> stack = new Stack<>();
         for (char x : str.toCharArray()){
-            stack.push(x);
             if (x == ')'){
                 while (stack.peek() != '('){
                     stack.pop();
                 }
-                if (stack.peek() == '(') stack.pop();
+                if (stack.peek() == '('){
+                    stack.pop();
+                }
+            } else {
+                stack.push(x);
             }
         }
+        for (char x : stack){
+            answer += x;
+        }
 
-        return stack;
+        return answer;
     }
     public static void main(String[] args) {
         Main T = new Main();
         Scanner scanner = new Scanner(System.in);
         String str = scanner.next();
-        for (char x : T.solution(str)){
-            System.out.print(x);
-        }
+        System.out.println(T.solution(str));
     }
 }

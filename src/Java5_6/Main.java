@@ -10,15 +10,22 @@ public class Main {
     public int solution(int n, int k){
         int answer = 0;
 
-        Queue<Integer> Q = new LinkedList<>();
-        for (int i =  1; i <= n; i++) Q.offer(i);
-        while (!Q.isEmpty()){
-            for (int i = 1; i < k; i++){
-                Q.offer(Q.poll());
-            }
-            Q.poll();
-            if (Q.size() == 1) answer = Q.poll();
+        Queue<Integer> queue = new LinkedList<>();
+        for (int i = 1; i <= n; i++){
+            queue.add(i);
         }
+        int cnt = 1;
+        while (queue.size() > 1){
+            if (cnt % k == 0){
+                queue.poll();
+            } else {
+                int tmp = queue.poll();
+                queue.add(tmp);
+                if (queue.size() == 1) break;
+            }
+            cnt++;
+        }
+        answer = queue.peek();
 
         return answer;
     }

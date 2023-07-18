@@ -10,13 +10,18 @@ public class Main {
 
         Stack<Character> stack = new Stack<>();
         for (char x : str.toCharArray()){
-            if (x == '(') stack.push(x);
-            else{
-                if (stack.isEmpty()) return "NO";
+            if (x == '('){
+                stack.push(x);
+            } else {
+                if (stack.isEmpty()){ //스택이 비어있을 수도 있음!
+                    return "NO";
+                }
                 stack.pop();
             }
         }
-        if (!stack.isEmpty()) return "NO";
+        if (!stack.isEmpty()){
+            return "NO";
+        }
 
         return answer;
     }

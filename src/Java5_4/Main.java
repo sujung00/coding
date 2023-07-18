@@ -11,30 +11,27 @@ public class  Main {
 
         Stack<Integer> stack = new Stack<>();
         for (char x : str.toCharArray()){
-            if (x == '+' || x == '-' || x == '*' || x == '/'){
-                int b = stack.pop();
-                int a = stack.pop();
-                int result = 0;
-                switch (x){
-                    case '+':
-                        result = a + b;
-                        break;
-                    case '-':
-                        result = a - b;
-                        break;
-                    case '*':
-                        result = a * b;
-                        break;
-                    case '/':
-                        result = a / b;
-                        break;
-                }
-                stack.push(result);
+            if (x == '+'){
+                int b = Integer.parseInt(String.valueOf(stack.pop()));
+                int a = Integer.parseInt(String.valueOf(stack.pop()));
+                stack.push(a+b);
+            } else if (x == '-'){
+                int b = Integer.parseInt(String.valueOf(stack.pop()));
+                int a = Integer.parseInt(String.valueOf(stack.pop()));
+                stack.push(a-b);
+            } else if (x == '*'){
+                int b = Integer.parseInt(String.valueOf(stack.pop()));
+                int a = Integer.parseInt(String.valueOf(stack.pop()));
+                stack.push(a*b);
+            } else if (x == '/'){
+                int b = Integer.parseInt(String.valueOf(stack.pop()));
+                int a = Integer.parseInt(String.valueOf(stack.pop()));
+                stack.push(a/b);
             } else {
-                stack.push(Integer.parseInt(String.valueOf(x)));
+                stack.push(x-48);
             }
         }
-        answer = stack.peek();
+        answer = Integer.parseInt(String.valueOf(stack.pop()));
 
         return answer;
     }

@@ -19,7 +19,7 @@ public class Main {
         for (int rt = b.length()-1; rt < a.length(); rt++){
             amap.put(a.charAt(rt), amap.getOrDefault(a.charAt(rt), 0)+1);
             if (amap.equals(bmap)) answer++;
-            amap.put(a.charAt(lt), amap.getOrDefault(a.charAt(lt), 0)-1);
+            amap.put(a.charAt(lt), amap.get(a.charAt(lt))-1);
             if (amap.get(a.charAt(lt)) == 0){
                 amap.remove(a.charAt(lt));
             }
