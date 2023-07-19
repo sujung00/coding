@@ -3,7 +3,6 @@ package Java5_6;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
-import java.util.Stack;
 
 // 2023.07.01*
 public class Main {
@@ -14,18 +13,20 @@ public class Main {
         for (int i = 1; i <= n; i++){
             queue.add(i);
         }
-        int cnt = 1;
-        while (queue.size() > 1){
-            if (cnt % k == 0){
-                queue.poll();
-            } else {
-                int tmp = queue.poll();
-                queue.add(tmp);
-                if (queue.size() == 1) break;
-            }
+        int cnt = 0;
+        while (!queue.isEmpty()){
             cnt++;
+            if (queue.size() == 1){
+                return queue.poll();
+            } else {
+                if (cnt % k == 0){
+                    queue.poll();
+                } else {
+                    int tmp = queue.poll();
+                    queue.add(tmp);
+                }
+            }
         }
-        answer = queue.peek();
 
         return answer;
     }

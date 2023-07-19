@@ -1,5 +1,8 @@
 package Java5_8;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
@@ -7,34 +10,33 @@ import java.util.Scanner;
 // 2023.07.02*
 public class Main {
     class Person{
-        int id;
-        int priority;
-        public Person(int id, int priority){
-            this.id = id;
-            this.priority = priority;
+        private int num;
+        private int danger;
+
+        public Person(int num, int danger){
+            this.num = num;
+            this.danger = danger;
         }
     }
     public int solution(int n, int m, int[] arr){
-        int answer = 0;
+        int answer = 1;
 
-        Queue<Person> Q = new LinkedList<>();
-        int max = Integer.MIN_VALUE;
-        // Queue에 집어넣기
+        Queue<Person> queue = new LinkedList<>();
         for (int i = 0; i < n; i++){
-            Q.offer(new Person(i, arr[i]));
+            queue.add(new Person(i, arr[i]));
         }
-        while (!Q.isEmpty()){
-            Person tmp = Q.poll();
-            for (Person x : Q){
-                if (x.priority > tmp.priority){
-                    Q.add(tmp);
+        while (!queue.isEmpty()){
+            Person tmp = queue.poll();
+            for (Person x : queue){
+                if (x.danger > tmp.danger){
+                    queue.add(tmp);
                     tmp = null;
                     break;
                 }
             }
-            if (tmp != null) {
-                answer++;
-                if (tmp.id == m) return answer;
+            if (tmp != null){
+                if (tmp.num == m) return answer;
+                else answer++;
             }
         }
 

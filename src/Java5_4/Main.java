@@ -1,6 +1,5 @@
 package Java5_4;
 
-import java.util.Calendar;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -12,26 +11,26 @@ public class  Main {
         Stack<Integer> stack = new Stack<>();
         for (char x : str.toCharArray()){
             if (x == '+'){
-                int b = Integer.parseInt(String.valueOf(stack.pop()));
-                int a = Integer.parseInt(String.valueOf(stack.pop()));
+                int b = stack.pop();
+                int a = stack.pop();
                 stack.push(a+b);
-            } else if (x == '-'){
-                int b = Integer.parseInt(String.valueOf(stack.pop()));
-                int a = Integer.parseInt(String.valueOf(stack.pop()));
+            } else if (x == '-') {
+                int b = stack.pop();
+                int a = stack.pop();
                 stack.push(a-b);
             } else if (x == '*'){
-                int b = Integer.parseInt(String.valueOf(stack.pop()));
-                int a = Integer.parseInt(String.valueOf(stack.pop()));
+                int b = stack.pop();
+                int a = stack.pop();
                 stack.push(a*b);
-            } else if (x == '/'){
-                int b = Integer.parseInt(String.valueOf(stack.pop()));
-                int a = Integer.parseInt(String.valueOf(stack.pop()));
+            } else if (x == '/') {
+                int b = stack.pop();
+                int a = stack.pop();
                 stack.push(a/b);
             } else {
                 stack.push(x-48);
             }
         }
-        answer = Integer.parseInt(String.valueOf(stack.pop()));
+        answer = stack.pop();
 
         return answer;
     }
