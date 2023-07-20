@@ -10,8 +10,8 @@ import java.util.Scanner;
 // 2023.07.02*
 public class Main {
     class Person{
-        private int num;
-        private int danger;
+        int num;
+        int danger;
 
         public Person(int num, int danger){
             this.num = num;
@@ -19,7 +19,7 @@ public class Main {
         }
     }
     public int solution(int n, int m, int[] arr){
-        int answer = 1;
+        int answer = 0;
 
         Queue<Person> queue = new LinkedList<>();
         for (int i = 0; i < n; i++){
@@ -35,8 +35,8 @@ public class Main {
                 }
             }
             if (tmp != null){
+                answer++;
                 if (tmp.num == m) return answer;
-                else answer++;
             }
         }
 
