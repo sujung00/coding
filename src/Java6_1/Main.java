@@ -4,20 +4,20 @@ import java.util.Scanner;
 
 public class Main {
     public int[] solution(int n, int[] arr){
-        for (int i = 0; i < n; i++){
-            int minIndex = 0;
-            int minValue = arr[i];
+        // 최솟값이랑 값 교환
+        for (int i = 0; i < n-1; i++){
+            // 최솟값 구하기
+            int minIndex = i;
             for (int j = i+1; j < n; j++){
-                if (minValue > arr[j]){
-                    minValue = arr[j];
+                if (arr[minIndex] > arr[j]){
                     minIndex = j;
                 }
             }
-            if (minValue != arr[i]){
-                int tmp = arr[i];
-                arr[i] = minValue;
-                arr[minIndex] = tmp;
-            }
+
+            // 값 교환하기
+            int tmp = arr[i];
+            arr[i] = arr[minIndex];
+            arr[minIndex] = tmp;
         }
 
         return arr;

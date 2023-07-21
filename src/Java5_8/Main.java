@@ -1,8 +1,5 @@
 package Java5_8;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
@@ -10,16 +7,16 @@ import java.util.Scanner;
 // 2023.07.02*
 public class Main {
     class Person{
-        int num;
+        int id;
         int danger;
 
-        public Person(int num, int danger){
-            this.num = num;
+        public Person(int id, int danger){
+            this.id = id;
             this.danger = danger;
         }
     }
     public int solution(int n, int m, int[] arr){
-        int answer = 0;
+        int answer = 1;
 
         Queue<Person> queue = new LinkedList<>();
         for (int i = 0; i < n; i++){
@@ -34,9 +31,9 @@ public class Main {
                     break;
                 }
             }
-            if (tmp != null){
+            if (tmp != null){ // 위험도가 젤 높다
                 answer++;
-                if (tmp.num == m) return answer;
+                if (tmp.id == m) return answer;
             }
         }
 

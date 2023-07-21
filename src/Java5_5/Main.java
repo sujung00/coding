@@ -4,22 +4,23 @@ import java.util.*;
 
 // 2023.06.30*
 public class Main {
-    public int solution(int n, int k, int[] arr){
-        int answer = -1;
+    public int solution(String str){
+        int answer = 0;
 
-        TreeSet<Integer> Tset = new TreeSet<>(Collections.reverseOrder());
-        for (int i = 0; i < n; i++){
-            for (int j = i+1; j < n; j++){
-                for (int l = j+1; l < n; l++){
-                    Tset.add(arr[i] + arr[j] + arr[l]);
+        Stack<Character> stack = new Stack<>();
+        for (int i = 0; i < str.length(); i++){
+            if (str.charAt(i) == '('){
+                stack.push(str.charAt(i));
+            } else {
+                stack.pop();
+                // 레이저인 경우
+                if (str.charAt(i-1) == '('){
+                    answer += stack.size();
                 }
-            }
-        }
-        int cnt = 0;
-        for (int x : Tset){
-            cnt++;
-            if (cnt == k){
-                return x;
+                // 막대기인 경우
+                else {
+                    answer++;
+                }
             }
         }
 
@@ -28,12 +29,7 @@ public class Main {
     public static void main(String[] args) {
         Main T = new Main();
         Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();
-        int k = scanner.nextInt();
-        int[] arr = new int[n];
-        for (int i = 0; i < n; i++){
-            arr[i] = scanner.nextInt();
-        }
-        System.out.println(T.solution(n, k, arr));
+        String str = scanner.next();
+        System.out.println(T.solution(str));
     }
 }
