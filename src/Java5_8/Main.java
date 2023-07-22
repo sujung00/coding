@@ -16,7 +16,7 @@ public class Main {
         }
     }
     public int solution(int n, int m, int[] arr){
-        int answer = 1;
+        int answer = 0;
 
         Queue<Person> queue = new LinkedList<>();
         for (int i = 0; i < n; i++){
@@ -31,12 +31,13 @@ public class Main {
                     break;
                 }
             }
-            if (tmp != null){ // 위험도가 젤 높다
+            if (tmp != null){
                 answer++;
-                if (tmp.id == m) return answer;
+                if (tmp.id == m){
+                    return answer;
+                }
             }
         }
-
         return answer;
     }
     public static void main(String[] args) {
