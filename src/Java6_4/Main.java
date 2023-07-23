@@ -4,17 +4,17 @@ import java.util.Scanner;
 
 // 2023.07.06*
 public class Main {
-    public int[] solution(int size, int n, int[] arr){
-        int[] cache = new int[size];
+    public int[] solution(int s, int n, int[] arr){
+        int[] cache = new int[s];
         for (int x : arr){
             int pos = -1;
-            for (int i = 0; i < size; i++){
+            for (int i = 0; i < s; i++){
                 if (x == cache[i]){
                     pos = i;
                 }
             }
             if (pos == -1){
-                for (int i = size-1; i >= 1; i--){
+                for (int i = s-1; i >=1; i--){
                     cache[i] = cache[i-1];
                 }
                 cache[0] = x;
