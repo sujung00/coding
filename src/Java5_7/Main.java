@@ -6,30 +6,34 @@ import java.util.Scanner;
 
 // 2023.07.02*
 public class Main {
-    public String solution(String a, String b){
+    public String solution(String need, String plan){
         String answer = "YES";
 
-        Queue<Character> aqueue = new LinkedList<>();
-        Queue<Character> bqueue = new LinkedList<>();
-        for (char x : a.toCharArray()){
-            aqueue.add(x);
+        Queue<Character> queue = new LinkedList<>();
+        // queue에 필수과목 넣기
+        for (char x : need.toCharArray()){
+            queue.add(x);
         }
-        for (int i = 0; i < b.length(); i++){
-            for (char x : aqueue){
-                if (x == b.charAt(i)){
-                    bqueue.add(x);
+        for (char x : plan.toCharArray()){
+            if (queue.contains(x)){
+                // 필수과목 순서가 맞지 않음
+                if (x != queue.poll()){
+                    return "NO";
                 }
             }
         }
-        if (!aqueue.equals(bqueue)) return "NO";
+        // 필수과목이 아직 남아있다면
+        if (!queue.isEmpty()){
+            return "NO";
+        }
 
         return answer;
     }
     public static void main(String[] args) {
         Main T = new Main();
         Scanner scanner = new Scanner(System.in);
-        String a = scanner.next();
-        String b = scanner.next();
-        System.out.println(T.solution(a, b));
+        String need = scanner.next();
+        String plan = scanner.next();
+        System.out.println(T.solution(need, plan));
     }
 }
