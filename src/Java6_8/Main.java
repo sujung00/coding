@@ -1,37 +1,40 @@
 package Java6_8;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Scanner;
 
-class Point implements Comparable<Point>{
-    public int x, y;
+public class Main {
+    public int solution(int n, int m, int[] arr){
+        int answer = 0;
 
-    Point(int x, int y){
-        this.x = x;
-        this.y = y;
-    }
-
-    @Override
-    public int compareTo(Point o){
-        if (this.x == o.x) return this.y - o.y;
-        else return this.x - o.x;
-    }
-}
-
-class Main {
-
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        int n = scanner.nextInt();
-        ArrayList<Point> arr = new ArrayList<>();
-        for (int i = 0; i < n; i++){
-            int x = scanner.nextInt();
-            int y = scanner.nextInt();
-            arr.add(new Point(x, y));
+        Arrays.sort(arr);
+        int lt = 0, rt = n-1;
+        while (lt <= rt){
+            int mid = (lt+rt)/2;
+            if (arr[mid]==m){
+                answer = mid+1;
+                break;
+            }
+            if (arr[mid] > m){
+                rt = mid-1;
+            } else {
+                lt = mid+1;
+            }
         }
-        Collections.sort(arr);
-        for (Point o : arr) System.out.println(o.x + " " + o.y);
+
+        return answer;
+    }
+    public static void main(String[] args) {
+        Main T = new Main();
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int m = scanner.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++){
+            arr[i] = scanner.nextInt();
+        }
+        System.out.println(T.solution(n, m, arr));
     }
 }
