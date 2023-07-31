@@ -5,13 +5,14 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
-    public ArrayList<Integer> solution(int n, int[] arr) {
+    public ArrayList<Integer> solution(int n, int[] arr){
         ArrayList<Integer> answer = new ArrayList<>();
 
-        int[] tmp = arr.clone();
-        Arrays.sort(tmp);
+        int[] result = new int[n];
+        System.arraycopy(arr, 0, result, 0, n);
+        Arrays.sort(result);
         for (int i = 0; i < n; i++){
-            if (arr[i] != tmp[i]){
+            if (result[i] != arr[i]){
                 answer.add(i+1);
             }
         }
