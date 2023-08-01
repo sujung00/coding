@@ -1,17 +1,14 @@
 package Java6_7;
 
-import java.awt.*;
 import java.util.*;
 
-class Point implements Comparable<Point> {
-    int x;
-    int y;
+class Point implements Comparable<Point>{
+    public int x, y;
 
-    public Point(int x, int y){
+    Point(int x, int y){
         this.x = x;
         this.y = y;
     }
-
     @Override
     public int compareTo(Point o) {
         if (this.x == o.x){
@@ -21,19 +18,20 @@ class Point implements Comparable<Point> {
         }
     }
 }
+
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
-        ArrayList<Point> arr = new ArrayList<>();
+        ArrayList<Point> points = new ArrayList<>();
         for (int i = 0; i < n; i++){
             int x = scanner.nextInt();
             int y = scanner.nextInt();
-            arr.add(new Point(x, y));
+            points.add(new Point(x, y));
         }
-        Collections.sort(arr);
-        for (Point o : arr){
-            System.out.println(o.x + " " + o.y);
+        Collections.sort(points);
+        for (Point point : points){
+            System.out.println(point.x + " " + point.y);
         }
     }
 }
