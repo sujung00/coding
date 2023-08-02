@@ -13,7 +13,7 @@ public class Main {
         int lt = 0, rt = n-1;
         while (lt <= rt){
             int mid = (lt+rt)/2;
-            if (arr[mid]==m){
+            if (arr[mid] == m){
                 answer = mid+1;
                 break;
             }
