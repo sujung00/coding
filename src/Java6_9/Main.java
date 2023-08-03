@@ -1,22 +1,22 @@
-package Java52;
+package Java6_9;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
     public int count(int[] arr, int capacity){
-        int cnt = 1, sum  = 0;
+        int cnt = 1, sum = 0;
         for (int x : arr){
-            if(sum+x > capacity){
+            if (sum+x > capacity){
                 cnt++;
                 sum = x;
             } else {
                 sum += x;
             }
         }
-
         return cnt;
     }
+
     public int solution(int n, int m, int[] arr){
         int answer = 0;
 
@@ -34,6 +34,7 @@ public class Main {
 
         return answer;
     }
+
     public static void main(String[] args) {
         Main T = new Main();
         Scanner scanner = new Scanner(System.in);
