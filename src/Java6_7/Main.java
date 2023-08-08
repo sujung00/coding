@@ -4,16 +4,18 @@ import java.util.*;
 
 class Point implements Comparable<Point>{
     public int x, y;
-
     Point(int x, int y){
         this.x = x;
         this.y = y;
     }
+
     @Override
     public int compareTo(Point o) {
-        if (this.x == o.x){
+        if (this.x == o.x) {
+            // this -> o 순서대로 정렬이 되려면 음수값 리턴
             return this.y-o.y;
-        } else {
+        }
+        else {
             return this.x-o.x;
         }
     }
@@ -21,17 +23,21 @@ class Point implements Comparable<Point>{
 
 public class Main {
     public static void main(String[] args) {
+        Main T = new Main();
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
-        ArrayList<Point> points = new ArrayList<>();
+        ArrayList<Point> arr = new ArrayList<Point>();
         for (int i = 0; i < n; i++){
             int x = scanner.nextInt();
             int y = scanner.nextInt();
-            points.add(new Point(x, y));
+            arr.add(new Point(x, y));
         }
-        Collections.sort(points);
-        for (Point point : points){
-            System.out.println(point.x + " " + point.y);
+        // 정렬
+        // Comparable 인터페이스를 통해서 Point 객체 정렬
+        // 정렬의 기준은 compareTo 메소드를 기준으로 함
+        Collections.sort(arr);
+        for (Point o : arr){
+            System.out.println(o.x + " " + o.y);
         }
     }
 }
