@@ -1,39 +1,39 @@
 package Java5_7;
 
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Scanner;
+import java.util.*;
 
 // 2023.07.02*
-public class Main {
-    public String solution(String need, String plan){
-        String answer = "YES";
 
-        Queue<Character> queue = new LinkedList<>();
-        // queue에 필수과목 넣기
-        for (char x : need.toCharArray()){
-            queue.add(x);
-        }
-        for (char x : plan.toCharArray()){
-            if (queue.contains(x)){
-                // 필수과목 순서가 맞지 않음
-                if (x != queue.poll()){
-                    return "NO";
-                }
-            }
-        }
-        // 필수과목이 아직 남아있다면
-        if (!queue.isEmpty()){
-            return "NO";
-        }
-
-        return answer;
+class Point implements Comparable<Point>{
+    int x, y;
+    public Point(int x, int y){
+        this.x = x;
+        this.y = y;
     }
+    @Override
+    public int compareTo(Point o) {
+        if(this.x == o.x){
+            return this.y-o.y;
+        } else {
+            return this.x-o.x;
+        }
+    }
+}
+
+public class Main {
     public static void main(String[] args) {
         Main T = new Main();
         Scanner scanner = new Scanner(System.in);
-        String need = scanner.next();
-        String plan = scanner.next();
-        System.out.println(T.solution(need, plan));
+        int n = scanner.nextInt();
+        ArrayList<Point> arr = new ArrayList<>();
+        for (int i = 0; i < n; i++){
+            int x = scanner.nextInt();
+            int y = scanner.nextInt();
+            arr.add(new Point(x, y));
+        }
+        Collections.sort(arr);
+        for (Point o : arr){
+            System.out.println(o.x + " " + o.y);
+        }
     }
 }
