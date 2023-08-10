@@ -1,13 +1,24 @@
 package Java6_8;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Scanner;
 
 public class Main {
-    public int solution(int n, int m, int[] nums){
+    public int solution(int n, int m, int[] arr){
         int answer = 0;
+
+        Arrays.sort(arr);
+        int lt = 0, rt = n-1;
+        while (lt <= rt){
+            int mid = (lt+rt)/2;
+            if(m > arr[mid]){
+                lt = mid+1;
+            } else if(m < arr[mid]){
+                rt = mid-1;
+            } else {
+                return mid+1;
+            }
+        }
 
         return answer;
     }
