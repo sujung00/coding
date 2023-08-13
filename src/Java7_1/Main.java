@@ -11,6 +11,7 @@ class Main {
             System.out.print(n + " ");
         }
     }
+
     public static void main(String[] args) {
         Main T = new Main();
         T.DFS(3);
