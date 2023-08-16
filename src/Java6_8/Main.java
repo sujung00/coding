@@ -8,15 +8,10 @@ public class Main {
         int answer = 0;
 
         Arrays.sort(arr);
-        int lt = 0, rt = n-1;
-        while (lt <= rt){
-            int mid = (lt+rt)/2;
-            if(m > arr[mid]){
-                lt = mid+1;
-            } else if(m < arr[mid]){
-                rt = mid-1;
-            } else {
-                return mid+1;
+        for (int i = 0; i < n; i++){
+            if (arr[i] == m){
+                answer = i+1;
+                return answer;
             }
         }
 

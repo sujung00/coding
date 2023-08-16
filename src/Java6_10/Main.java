@@ -4,12 +4,12 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
-    public int count(int[] arr, int dist){
-        int cnt = 1;
+    public int count(int[] arr, int dis){
+        int cnt = 1; // 배치한 말의 수
 
         int ep = arr[0];
         for (int i = 1; i < arr.length; i++){
-            if (arr[i]-ep >= dist){
+            if (arr[i]-ep >= dis){
                 cnt++;
                 ep = arr[i];
             }
@@ -17,7 +17,6 @@ public class Main {
 
         return cnt;
     }
-
     public int solution(int n, int m, int[] arr){
         int answer = 0;
 
@@ -26,7 +25,7 @@ public class Main {
         int rt = arr[n-1];
         while (lt <= rt){
             int mid = (lt+rt)/2;
-            if(count(arr, mid) >= m){
+            if (count(arr, mid) >= m){
                 answer = mid;
                 lt = mid+1;
             } else {

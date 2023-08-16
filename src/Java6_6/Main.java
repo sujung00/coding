@@ -8,11 +8,10 @@ public class Main {
     public ArrayList<Integer> solution(int n, int[] arr){
         ArrayList<Integer> answer = new ArrayList<>();
 
-        int[] result = new int[n];
-        System.arraycopy(arr, 0, result, 0, n);
-        Arrays.sort(result);
+        int[] height = Arrays.copyOf(arr, n);
+        Arrays.sort(height);
         for (int i = 0; i < n; i++){
-            if (result[i] != arr[i]){
+            if (arr[i] != height[i]){
                 answer.add(i+1);
             }
         }
