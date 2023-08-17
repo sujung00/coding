@@ -4,12 +4,12 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
-    public int count(int[] arr, int dis){
-        int cnt = 1; // 배치한 말의 수
+    public int count(int[] arr, int dist){
+        int cnt = 1;
 
         int ep = arr[0];
         for (int i = 1; i < arr.length; i++){
-            if (arr[i]-ep >= dis){
+            if (arr[i] - ep >= dist){
                 cnt++;
                 ep = arr[i];
             }
@@ -17,7 +17,7 @@ public class Main {
 
         return cnt;
     }
-    public int solution(int n, int m, int[] arr){
+    public int solution(int n, int c, int[] arr){
         int answer = 0;
 
         Arrays.sort(arr);
@@ -25,7 +25,7 @@ public class Main {
         int rt = arr[n-1];
         while (lt <= rt){
             int mid = (lt+rt)/2;
-            if (count(arr, mid) >= m){
+            if(count(arr, mid) >= c){
                 answer = mid;
                 lt = mid+1;
             } else {
@@ -33,17 +33,18 @@ public class Main {
             }
         }
 
+
         return answer;
     }
     public static void main(String[] args) {
         Main T = new Main();
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
-        int m = scanner.nextInt();
+        int c = scanner.nextInt();
         int[] arr = new int[n];
         for (int i = 0; i < n; i++){
             arr[i] = scanner.nextInt();
         }
-        System.out.println(T.solution(n, m, arr));
+        System.out.println(T.solution(n, c, arr));
     }
 }

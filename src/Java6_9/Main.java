@@ -5,9 +5,9 @@ import java.util.Scanner;
 
 public class Main {
     public int count(int[] arr, int capacity){
-        // cnt : DVD 장 수
-        // sum : 차지하는 용량
-        int cnt = 1, sum = 0;
+        int cnt = 1;
+
+        int sum = 0;
         for (int x : arr){
             if (sum + x > capacity){
                 cnt++;
@@ -16,6 +16,7 @@ public class Main {
                 sum += x;
             }
         }
+
         return cnt;
     }
     public int solution(int n, int m, int[] arr){
@@ -23,7 +24,6 @@ public class Main {
 
         int lt = Arrays.stream(arr).max().getAsInt();
         int rt = Arrays.stream(arr).sum();
-
         while (lt <= rt){
             int mid = (lt+rt)/2;
             if (count(arr, mid) <= m){
