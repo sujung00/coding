@@ -1,9 +1,17 @@
 package Java7_7;
 
+// 이진트리 순회(넓이우선탐색-BFS : 레벨탐색)
+// 아래 그림과 같은 이진트리를 전위순회와 후위순회를 연습해보세요.
+//      1
+//   2      3
+// 4   5  6   7
+// 레벨 탐색 순회 출력 : 1 2 3 4 5 6 7
+
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Scanner;
 
-class Node{
+class Node {
     int data;
     Node lt, rt;
     public Node(int val){
@@ -11,7 +19,6 @@ class Node{
         lt = rt = null;
     }
 }
-
 public class Main {
     Node root;
     public void BFS(Node root){
@@ -24,14 +31,17 @@ public class Main {
             for (int i = 0; i < len; i++){
                 Node cur = Q.poll();
                 System.out.print(cur.data + " ");
-                if (cur.lt != null) Q.offer(cur.lt);
-                if (cur.rt != null) Q.offer(cur.rt);
+                if (cur.lt != null){
+                    Q.offer(cur.lt);
+                }
+                if (cur.rt != null){
+                    Q.offer(cur.rt);
+                }
             }
             L++;
             System.out.println();
         }
     }
-
     public static void main(String[] args) {
         Main tree = new Main();
         tree.root = new Node(1);
