@@ -30,12 +30,13 @@ public class Main {
             int len = Q.size();
             for (int i = 0; i < len; i++){
                 Node x = Q.poll();
-                if (x.lt==null && x.rt==null) return L;
+                if (x.lt == null && x.rt == null) return L;
                 if (x.lt != null) Q.offer(x.lt);
                 if (x.rt != null) Q.offer(x.rt);
             }
             L++;
         }
+
         return 0;
     }
     public static void main(String[] args) {

@@ -20,9 +20,8 @@ class Node {
 public class Main {
     Node root;
     public int DFS(int L, Node root){
-        // 양쪽 자식이 없을 때
         if (root.lt == null && root.rt == null) return L;
-        else return Math.min(DFS(L+1, root.lt), DFS(L+1, root.rt));
+        else return  Math.min(DFS(L+1, root.lt), DFS(L+1, root.rt));
     }
 
     public static void main(String[] args) {
