@@ -9,7 +9,8 @@ public class Main {
     public static void main(String[] args) {
         Main T = new Main();
         Scanner scanner = new Scanner(System.in);
-        int v = scanner.nextInt();
-        int e = scanner.nextInt();
+        int n = scanner.nextInt();
+        int m = scanner.nextInt();
+        int[][] graph = new int[n][n];
     }
 }
