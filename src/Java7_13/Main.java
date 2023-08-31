@@ -9,7 +9,7 @@ public class Main {
     static int[] ch;
 
     public void DFS(int v){
-        if (v == n) answer++;
+        if (v==n) answer++;
         else {
             for (int nv : graph.get(v)){
                 if (ch[nv] == 0){
