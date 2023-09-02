@@ -18,7 +18,7 @@ public class Main {
         while (!queue.isEmpty()){
             int cv = queue.poll();
             for (int nv : graph.get(cv)){
-                if (ch[nv]==0){
+                if (ch[nv] == 0){
                     ch[nv] = 1;
                     queue.offer(nv);
                     dis[nv] = dis[cv]+1;
