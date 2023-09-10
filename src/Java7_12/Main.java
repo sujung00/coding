@@ -6,7 +6,6 @@ public class Main {
     static int n, m, answer = 0;
     static int[][] graph;
     static int[] ch;
-
     public void DFS(int v){
         if (v == n) answer++;
         else {
@@ -19,7 +18,6 @@ public class Main {
             }
         }
     }
-
     public static void main(String[] args) {
         Main T = new Main();
         Scanner scanner = new Scanner(System.in);
