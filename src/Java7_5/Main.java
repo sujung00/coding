@@ -9,7 +9,7 @@ package Java7_5;
 // 중위순회 출력(왼-부-오) : 4 2 5 1 6 3 7
 // 후위순회 출력(왼-오-부) : 4 5 2 6 7 3 1
 
-class Node{
+class Node {
     int data;
     Node lt, rt;
     public Node(int val){
@@ -17,23 +17,18 @@ class Node{
         lt = rt = null;
     }
 }
-
 public class Main {
     Node root;
     public void DFS(Node root){
         if (root == null) return;
         else {
-            // 전위순회
-            //System.out.print(root.data + " ");
+            //System.out.print(root.data + " "); // 전위순회
             DFS(root.lt);
-            // 중위순회
-            //System.out.print(root.data + " ");
+            //System.out.print(root.data + " "); // 중위순회
             DFS(root.rt);
-            // 후위순회
-            System.out.print(root.data + " ");
+            System.out.print(root.data + " "); // 후위순회
         }
     }
-
     public static void main(String[] args) {
         Main tree = new Main();
         tree.root = new Node(1);
