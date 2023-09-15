@@ -9,21 +9,18 @@ package Java7_7;
 
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Scanner;
 
 class Node {
     int data;
     Node lt, rt;
-
-    public Node(int data){
-        this.data = data;
+    public Node(int val){
+        data = val;
         lt = rt = null;
     }
 }
 public class Main {
     Node root;
-
-    public int BFS(Node root){
+    public void BFS(Node root){
         Queue<Node> Q = new LinkedList<>();
         Q.offer(root);
         int L = 0;
@@ -31,16 +28,18 @@ public class Main {
             int len = Q.size();
             System.out.print(L + " : ");
             for (int i = 0; i < len; i++){
-                Node x = Q.poll();
-                System.out.print(x.data + " ");
-                if (x.lt != null) Q.offer(x.lt);
-                if (x.rt != null) Q.offer(x.rt);
+                Node cur = Q.poll();
+                System.out.print(cur.data + " ");
+                if (cur.lt != null){
+                    Q.offer(cur.lt);
+                }
+                if (cur.rt != null){
+                    Q.offer(cur.rt);
+                }
             }
             L++;
             System.out.println();
         }
-
-        return 0;
     }
 
     public static void main(String[] args) {
