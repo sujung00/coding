@@ -29,7 +29,7 @@ public class Main {
             System.out.print(L + " : ");
             for (int i = 0; i < len; i++){
                 Node cur = Q.poll();
-                System.out.print(cur.data + " ");
+                System.out.print(cur.data +  " ");
                 if (cur.lt != null){
                     Q.offer(cur.lt);
                 }
