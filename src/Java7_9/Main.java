@@ -8,22 +8,23 @@ package Java7_9;
 // 4   5
 // 가장 짧은 길이는 3번 노드까지의 길이인 1이다.
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 class Node {
     int data;
     Node lt, rt;
-    public Node(int data){
-        this.data = data;
+
+    public Node(int val){
+        data = val;
         lt = rt = null;
     }
 }
-
 public class Main {
     Node root;
     public int DFS(int L, Node root){
         if (root.lt == null && root.rt == null) return L;
-        else {
-            return  Math.min(DFS(L+1, root.lt), DFS(L+1, root.rt));
-        }
+        else return Math.min(DFS(L+1, root.lt), DFS(L+1, root.rt));
     }
 
     public static void main(String[] args) {
