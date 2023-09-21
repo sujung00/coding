@@ -2,15 +2,27 @@ package Java7_12;
 
 import java.util.Scanner;
 
+//5 9
+//1 2
+//1 3
+//1 4
+//2 1
+//2 3
+//2 5
+//3 4
+//4 2
+//4 5
+
 public class Main {
-    static int n, m, answer = 0;
+    static int n, m;
     static int[][] graph;
     static int[] ch;
+    static int answer;
     public void DFS(int v){
         if (v == n) answer++;
         else {
             for (int i = 1; i <= n; i++){
-                if (graph[v][i]==1 && ch[i]==0){
+                if (ch[i] == 0 && graph[v][i] == 1){
                     ch[i] = 1;
                     DFS(i);
                     ch[i] = 0;

@@ -5,11 +5,11 @@ import java.util.Scanner;
 
 public class Main {
     static int n, m, answer = 0;
-    static ArrayList<ArrayList<Integer>> graph;
     static int[] ch;
+    static ArrayList<ArrayList<Integer>> graph;
 
     public void DFS(int v){
-        if (v==n) answer++;
+        if (v == n) answer++;
         else {
             for (int nv : graph.get(v)){
                 if (ch[nv] == 0){
@@ -20,7 +20,6 @@ public class Main {
             }
         }
     }
-
     public static void main(String[] args) {
         Main T = new Main();
         Scanner scanner = new Scanner(System.in);
