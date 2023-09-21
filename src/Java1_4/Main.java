@@ -9,18 +9,15 @@ public class Main {
     public List<String> solution(int num, String[] strings){
         List<String> answer = new ArrayList<>();
 
-        for (String x : strings) {
-            char[] chars = x.toCharArray();
-            int lt = 0, rt = chars.length-1;
-            while (lt < rt){
-                char tmp = chars[lt];
-                chars[lt] = chars[rt];
-                chars[rt] = tmp;
-                lt++;
-                rt--;
+        for (String x : strings){
+            char[] arr = x.toCharArray();
+            for (int i = 0; i < arr.length/2; i++){
+                char c = arr[i];
+                arr[i] = arr[arr.length-1-i];
+                arr[arr.length-1-i] = c;
             }
-            String word = String.valueOf(chars);
-            answer.add(word);
+            x = String.valueOf(arr);
+            answer.add(x);
         }
 
         return answer;

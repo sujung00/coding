@@ -9,11 +9,13 @@ public class Main {
     public String solution(String str){
         String answer = "";
 
-        for (int i = 0; i < str.length(); i++){
-            if (Character.isLowerCase(str.charAt(i))){
-                answer += Character.toUpperCase(str.charAt(i));
+        for (char x : str.toCharArray()){
+            if (Character.isUpperCase(x)){
+                x = Character.toLowerCase(x);
+                answer += x;
             } else {
-                answer += Character.toLowerCase(str.charAt(i));
+                x = Character.toUpperCase(x);
+                answer += x;
             }
         }
 
