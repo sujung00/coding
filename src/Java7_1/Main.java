@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 class Main {
     public void DFS(int n){
-        if (n == 0) return; // 종결
+        if (n == 0) return;
         else {
             DFS(n-1);
             System.out.print(n + " ");
