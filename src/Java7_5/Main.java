@@ -9,9 +9,12 @@ package Java7_5;
 // 중위순회 출력(왼-부-오) : 4 2 5 1 6 3 7
 // 후위순회 출력(왼-오-부) : 4 5 2 6 7 3 1
 
+import java.util.Scanner;
+
 class Node {
     int data;
     Node lt, rt;
+
     public Node(int val){
         data = val;
         lt = rt = null;
@@ -20,14 +23,9 @@ class Node {
 public class Main {
     Node root;
     public void DFS(Node root){
-        if (root == null) return;
-        else {
-            //System.out.print(root.data + " "); // 전위순회
-            DFS(root.lt);
-            //System.out.print(root.data + " "); // 중위순회
-            DFS(root.rt);
-            System.out.print(root.data + " "); // 후위순회
-        }
+        if (root.lt != null) DFS(root.lt);
+        if (root.rt != null) DFS(root.rt);
+        System.out.print(root.data + " ");
     }
     public static void main(String[] args) {
         Main tree = new Main();
