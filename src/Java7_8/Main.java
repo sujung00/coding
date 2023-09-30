@@ -12,18 +12,18 @@ public class Main {
     public int BFS(int s, int e){
         ch = new int[10001];
         ch[s] = 1;
-        int L = 0;
         Q.offer(s);
+        int L = 0;
         while (!Q.isEmpty()){
             int len = Q.size();
             for (int i = 0; i < len; i++){
-                int x = Q.poll();
-                if (x == e) return L;
+                int cur = Q.poll();
                 for (int j = 0; j < 3; j++){
-                    int nx = x + dis[j];
-                    if (nx >= 1 && nx <= 10000 && ch[nx]==0){
-                        ch[nx] = 1;
-                        Q.offer(nx);
+                    int next = cur + dis[j];
+                    if (next == e) return L+1;
+                    if (next >= 1 && next <= 10000 && ch[next] == 0){
+                        ch[next] = 1;
+                        Q.offer(next);
                     }
                 }
             }
