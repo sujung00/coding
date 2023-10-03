@@ -31,16 +31,17 @@ public class Main {
         while (!Q.isEmpty()){
             int len = Q.size();
             for (int i = 0; i < len; i++){
-                Node x = Q.poll();
-                if (x.lt==null && x.rt==null) return L;
-                if (x.lt != null) Q.offer(x.lt);
-                if (x.rt != null) Q.offer(x.rt);
+                Node cur = Q.poll();
+                if (cur.lt == null && cur.rt == null) return L;
+                if (cur.lt != null) Q.offer(cur.lt);
+                if (cur.rt != null) Q.offer(cur.rt);
             }
             L++;
         }
 
         return 0;
     }
+
     public static void main(String[] args) {
         Main tree = new Main();
         tree.root = new Node(1);
