@@ -18,6 +18,7 @@ public class Main {
     static int[][] graph;
     static int[] ch;
     static int answer;
+
     public void DFS(int v){
         if (v == n) answer++;
         else {
