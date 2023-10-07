@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    static int n, m, answer = 0;
-    static int[] ch;
     static ArrayList<ArrayList<Integer>> graph;
+    static int[] ch;
+    static int n, m, answer = 0;
 
     public void DFS(int v){
         if (v == n) answer++;
@@ -20,13 +20,14 @@ public class Main {
             }
         }
     }
+
     public static void main(String[] args) {
         Main T = new Main();
         Scanner scanner = new Scanner(System.in);
         n = scanner.nextInt();
         m = scanner.nextInt();
         graph = new ArrayList<ArrayList<Integer>>();
-        for (int i = 0; i <= n; i++){
+        for (int i = 1; i <= n; i++){
             graph.add(new ArrayList<Integer>());
         }
         ch = new int[n+1];
