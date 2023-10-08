@@ -9,17 +9,17 @@ public class Main {
     public void DFS(int L, int sum, int[] arr){
         if (flag) return;
         if (sum > total/2) return;
-        if (L==n){
-            if (total-sum == sum) {
-                answer="YES";
+        if (L == n){
+            if ((total-sum) == sum){
+                answer = "YES";
                 flag = true;
             }
-        }
-        else {
+        } else {
             DFS(L+1, sum+arr[L], arr);
             DFS(L+1, sum, arr);
         }
     }
+
     public static void main(String[] args) {
         Main T = new Main();
         Scanner scanner = new Scanner(System.in);
