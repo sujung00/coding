@@ -17,22 +17,20 @@ import java.util.Scanner;
 //6 5
 
 public class Main {
-    static ArrayList<ArrayList<Integer>> graph;
-    static int[] dis, ch;
     static int n, m;
+    static ArrayList<ArrayList<Integer>> graph;
+    static int[] ch, dis;
 
     public void BFS(int v){
         Queue<Integer> Q = new LinkedList<>();
-        ch[v] = 1;
-        dis[v] = 0;
         Q.offer(v);
         while (!Q.isEmpty()){
-            int cv = Q.poll();
-            for (int nv : graph.get(cv)){
-                if (ch[nv] == 0){
-                    ch[nv] = 1;
-                    Q.offer(nv);
-                    dis[nv] = dis[cv] + 1;
+            int x = Q.poll();
+            for (int nx : graph.get(x)){
+                if (ch[nx] == 0){
+                    ch[nx] = 1;
+                    Q.offer(nx);
+                    dis[nx] = dis[x]+1;
                 }
             }
         }
@@ -54,8 +52,9 @@ public class Main {
             int b = scanner.nextInt();
             graph.get(a).add(b);
         }
+        ch[1] = 1;
         T.BFS(1);
-        for (int i = 1; i <= n; i++){
+        for (int i = 2; i <= n; i++){
             System.out.println(i + " : " + dis[i]);
         }
     }
