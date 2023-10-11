@@ -29,7 +29,7 @@ public class Main {
             for (int i = 0; i < 4; i++){
                 int nx = tmp.x + dx[i];
                 int ny = tmp.y + dy[i];
-                if (nx >= 1 && nx <= 7 && ny >= 1 && ny <=7 && board[nx][ny] == 0){
+                if (nx>=1  && nx<=7 && ny>=1 && ny<=7 && board[nx][ny]==0){
                     board[nx][ny] = 1;
                     Q.offer(new Point(nx, ny));
                     dis[nx][ny] = dis[tmp.x][tmp.y]+1;
