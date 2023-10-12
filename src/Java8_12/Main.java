@@ -5,29 +5,29 @@ import java.util.Queue;
 import java.util.Scanner;
 
 class Point{
-    public int x, y;
+    int x, y;
 
-    Point(int x, int y){
+    public Point(int x, int y){
         this.x = x;
         this.y = y;
     }
 }
 public class Main {
     static int[] dx = {-1, 0, 1, 0};
-    static int[] dy = {0, 1, 0, -1};
-    static int[][] box, dis;
+    static int[] dy ={0, 1, 0, -1};
+    static int[][] board, dis;
     static int n, m;
-    static Queue<Point> Q = new LinkedList<>();
+    static Queue<Point> queue = new LinkedList<>();
 
     public void BFS(){
-        while (!Q.isEmpty()){
-            Point tmp = Q.poll();
+        while (!queue.isEmpty()){
+            Point tmp = queue.poll();
             for (int i = 0; i < 4; i++){
                 int nx = tmp.x + dx[i];
                 int ny = tmp.y + dy[i];
-                if (nx>=0 && nx<n && ny>=0 && ny<m && box[nx][ny]==0){
-                    box[nx][ny] = 1;
-                    Q.offer(new Point(nx, ny));
+                if (nx>=0 && nx<n && ny>=0 && ny<m && board[nx][ny]==0){
+                    board[nx][ny] = 1;
+                    queue.offer(new Point(nx, ny));
                     dis[nx][ny] = dis[tmp.x][tmp.y]+1;
                 }
             }
@@ -39,12 +39,12 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         m = scanner.nextInt();
         n = scanner.nextInt();
-        box = new int[n][m];
+        board = new int[n][m];
         dis = new int[n][m];
         for (int i = 0; i < n; i++){
             for (int j = 0; j < m; j++){
-                box[i][j] = scanner.nextInt();
-                if (box[i][j] == 1) Q.offer(new Point(i, j));
+                board[i][j] = scanner.nextInt();
+                if (board[i][j] == 1) queue.offer(new Point(i, j));
             }
         }
         T.BFS();
@@ -52,7 +52,10 @@ public class Main {
         int answer = Integer.MIN_VALUE;
         for (int i = 0; i < n; i++){
             for (int j = 0; j < m; j++){
-                if (box[i][j] == 0) flag = false;
+                if (board[i][j] == 0) {
+                    flag = false;
+                    break;
+                }
             }
         }
         if (flag){
@@ -62,7 +65,8 @@ public class Main {
                 }
             }
             System.out.println(answer);
+        }else {
+            System.out.println(-1);
         }
-        else System.out.println(-1);
     }
 }

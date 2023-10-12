@@ -1,11 +1,12 @@
 package Java8_13;
 
+import java.util.Queue;
 import java.util.Scanner;
 
 public class Main {
-    static int n, answer = 0;
     static int[] dx = {-1, -1, 0, 1, 1, 1, 0, -1};
     static int[] dy = {0, 1, 1, 1, 0, -1, -1, -1};
+    static int n, answer = 0;
 
     public void DFS(int x, int y, int[][] board){
         for (int i = 0; i < 8; i++){
@@ -23,6 +24,7 @@ public class Main {
             for (int j = 0; j < n; j++){
                 if (board[i][j] == 1){
                     answer++;
+                    board[i][j] = 0;
                     DFS(i, j, board);
                 }
             }
@@ -33,13 +35,13 @@ public class Main {
         Main T = new Main();
         Scanner scanner = new Scanner(System.in);
         n = scanner.nextInt();
-        int[][] arr = new int[n][n];
+        int[][] board = new int[n][n];
         for (int i = 0; i < n; i++){
             for (int j = 0; j < n; j++){
-                arr[i][j] = scanner.nextInt();
+                board[i][j] = scanner.nextInt();
             }
         }
-        T.solution(arr);
+        T.solution(board);
         System.out.println(answer);
     }
 }
