@@ -23,7 +23,7 @@ public class Main {
         queue.offer(new Point(x, y));
         while (!queue.isEmpty()){
             Point pos = queue.poll();
-            for (int i = 0; i < 8; i++){
+            for (int i=0; i<8; i++){
                 int nx = pos.x + dx[i];
                 int ny = pos.y + dy[i];
                 if (nx>=0 && nx<n && ny>=0 && ny<n && board[nx][ny]==1){
