@@ -17,18 +17,18 @@ public class Main {
     static int[] dx = {-1, -1, 0, 1, 1, 1, 0, -1};
     static int[] dy = {0, 1, 1, 1, 0, -1, -1, -1};
     static int n, answer = 0;
-    Queue<Point> queue = new LinkedList<>();
+    Queue<Point> Q = new LinkedList<>();
 
     public void BFS(int x, int y, int[][] board){
-        queue.offer(new Point(x, y));
-        while (!queue.isEmpty()){
-            Point pos = queue.poll();
+        Q.offer(new Point(x, y));
+        while (!Q.isEmpty()){
+            Point pos = Q.poll();
             for (int i=0; i<8; i++){
                 int nx = pos.x + dx[i];
                 int ny = pos.y + dy[i];
                 if (nx>=0 && nx<n && ny>=0 && ny<n && board[nx][ny]==1){
                     board[nx][ny] = 0;
-                    queue.offer(new Point(nx, ny));
+                    Q.offer(new Point(nx, ny));
                 }
             }
         }
