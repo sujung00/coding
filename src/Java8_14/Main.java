@@ -28,7 +28,8 @@ public class Main {
                 sum += dis;
             }
             answer = Math.min(answer, sum);
-        } else {
+        }
+        else {
             for (int i = s; i < len; i++){
                 combi[L] = i;
                 DFS(L+1, i+1);
