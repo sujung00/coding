@@ -14,11 +14,11 @@ class Point{
 
 public class Main {
     static int n, m, len, answer = Integer.MAX_VALUE;
-    static ArrayList<Point> pz, hs;
-    static int[] combi;
+    static int[] combi; // 조합 저장
+    static ArrayList<Point> hs, pz;
 
     public void DFS(int L, int s){
-        if (L==m){
+        if (L == m){
             int sum = 0;
             for (Point h : hs){
                 int dis = Integer.MAX_VALUE;
@@ -28,8 +28,7 @@ public class Main {
                 sum += dis;
             }
             answer = Math.min(answer, sum);
-        }
-        else {
+        } else {
             for (int i = s; i < len; i++){
                 combi[L] = i;
                 DFS(L+1, i+1);
@@ -42,8 +41,8 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         n = scanner.nextInt();
         m = scanner.nextInt();
-        pz = new ArrayList<>();
         hs = new ArrayList<>();
+        pz = new ArrayList<>();
         for (int i = 0; i < n; i++){
             for (int j = 0; j < n; j++){
                 int tmp = scanner.nextInt();

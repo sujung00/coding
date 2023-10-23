@@ -14,21 +14,21 @@ class Point{
 }
 
 public class Main {
+    static int n, answer = 0;
+    static int[][] board;
     static int[] dx = {-1, -1, 0, 1, 1, 1, 0, -1};
     static int[] dy = {0, 1, 1, 1, 0, -1, -1, -1};
-    static int n, answer = 0;
-    Queue<Point> Q = new LinkedList<>();
-
-    public void BFS(int x, int y, int[][] board){
-        Q.offer(new Point(x, y));
-        while (!Q.isEmpty()){
-            Point pos = Q.poll();
-            for (int i=0; i<8; i++){
+    public void DFS(int x, int y, int[][] board){
+        Queue<Point> queue = new LinkedList<>();
+        queue.offer(new Point(x, y));
+        while (!queue.isEmpty()){
+            Point pos = queue.poll();
+            for (int i = 0; i < 8; i++){
                 int nx = pos.x + dx[i];
                 int ny = pos.y + dy[i];
                 if (nx>=0 && nx<n && ny>=0 && ny<n && board[nx][ny]==1){
                     board[nx][ny] = 0;
-                    Q.offer(new Point(nx, ny));
+                    queue.add(new Point(nx, ny));
                 }
             }
         }
@@ -40,7 +40,7 @@ public class Main {
                 if (board[i][j] == 1){
                     answer++;
                     board[i][j] = 0;
-                    BFS(i, j, board);
+                    DFS(i, j, board);
                 }
             }
         }
@@ -50,7 +50,7 @@ public class Main {
         Main T = new Main();
         Scanner scanner = new Scanner(System.in);
         n = scanner.nextInt();
-        int[][] board = new int[n][n];
+        board = new int[n][n];
         for (int i = 0; i < n; i++){
             for (int j = 0; j < n; j++){
                 board[i][j] = scanner.nextInt();
