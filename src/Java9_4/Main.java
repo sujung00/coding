@@ -1,21 +1,18 @@
 package Java9_4;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.PriorityQueue;
-import java.util.Scanner;
+import java.util.*;
 
 class Lecture implements Comparable<Lecture>{
-    int money, time;
+    int pay, time;
 
-    public Lecture(int money, int time){
-        this.money = money;
+    public Lecture(int pay, int time){
+        this.pay = pay;
         this.time = time;
     }
 
     @Override
     public int compareTo(Lecture o) {
-        return o.time - this.time;
+        return o.time - this.time; // 시간 기준으로 내림차순
     }
 }
 
@@ -25,13 +22,13 @@ public class Main {
     public int solution(ArrayList<Lecture> arr){
         int answer = 0;
 
-        PriorityQueue<Integer> pQ = new PriorityQueue<>(Collections.reverseOrder());
         Collections.sort(arr);
+        PriorityQueue<Integer> pQ = new PriorityQueue<>(Collections.reverseOrder());
         int j = 0;
         for (int i = max; i >= 1; i--){
             for ( ; j < n; j++){
                 if (arr.get(j).time < i) break;
-                pQ.offer(arr.get(j).money);
+                pQ.offer(arr.get(j).pay);
             }
             if (!pQ.isEmpty()) answer += pQ.poll();
         }
@@ -45,10 +42,10 @@ public class Main {
         n = scanner.nextInt();
         ArrayList<Lecture> arr = new ArrayList<>();
         for (int i = 0; i < n; i++){
-            int m = scanner.nextInt();
-            int d = scanner.nextInt();
-            arr.add(new Lecture(m, d));
-            if (d > max) max = d;
+            int pay = scanner.nextInt();
+            int time = scanner.nextInt();
+            arr.add(new Lecture(pay, time));
+            if (time > max) max = time;
         }
         System.out.println(T.solution(arr));
     }
