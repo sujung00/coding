@@ -8,15 +8,19 @@ public class Main {
         String answer = "YES";
 
         str = str.toUpperCase();
-        for (int i = 0; i < str.length()/2; i++){
-            if (str.charAt(i) != str.charAt(str.length()-1-i)){
-                answer = "NO";
-                return answer;
+        int lt = 0, rt = str.length()-1;
+        while (lt < rt){
+            if (str.charAt(lt) != str.charAt(rt)){
+                return "NO";
+            }else {
+                lt++;
+                rt--;
             }
         }
 
         return answer;
     }
+
     public static void main(String[] args) {
         Main T = new Main();
         Scanner scanner = new Scanner(System.in);
