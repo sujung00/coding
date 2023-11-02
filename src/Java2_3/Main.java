@@ -4,58 +4,33 @@ import java.util.Scanner;
 
 // 2023.06.19
 public class Main {
+    public char RPS(int a, int b){
+        char winner = ' ';
+
+        // 1: 가위
+        // 2: 바위
+        // 3: 보
+        if (a == 1){
+            if (b == 1) winner = 'D';
+            else if (b == 2) winner = 'B';
+            else if (b == 3) winner = 'A';
+        } else if (a == 2){
+            if (b == 1) winner = 'A';
+            else if (b == 2) winner = 'D';
+            else if (b == 3) winner = 'B';
+        } else if (a == 3){
+            if (b == 1) winner = 'B';
+            else if (b == 2) winner = 'A';
+            else if (b == 3) winner = 'D';
+        }
+
+        return winner;
+    }
     public char[] solution(int n, int[] a, int[] b){
         char[] answer = new char[n];
 
-        // 1:가위, 2:바위, 3:보
-        // 이긴 사람 정보 저장, 비기면 D
         for (int i = 0; i < n; i++){
-            if (a[i] == 1){ // 가위
-                switch (b[i]){
-                    // 가위
-                    case 1:
-                        answer[i] = 'D';
-                        break;
-                    // 바위
-                    case 2:
-                        answer[i] = 'B';
-                        break;
-                    // 보
-                    case 3:
-                        answer[i] = 'A';
-                        break;
-                }
-            }
-            else if (a[i] == 2){ // 바위
-                switch (b[i]){
-                    // 가위
-                    case 1:
-                        answer[i] = 'A';
-                        break;
-                    // 바위
-                    case 2:
-                        answer[i] = 'D';
-                        break;
-                    // 보
-                    case 3: answer[i] = 'B';
-                }
-            }
-            else if (a[i] == 3){ // 보
-                switch (b[i]){
-                    // 가위
-                    case 1:
-                        answer[i] = 'B';
-                        break;
-                    // 바위
-                    case 2:
-                        answer[i] = 'A';
-                        break;
-                    // 보
-                    case 3:
-                        answer[i] = 'D';
-                        break;
-                }
-            }
+            answer[i] = RPS(a[i], b[i]);
         }
 
         return answer;
@@ -72,8 +47,8 @@ public class Main {
         for (int i = 0; i < n; i++){
             b[i] = scanner.nextInt();
         }
-        for (char c : T.solution(n, a, b)){
-            System.out.println(c);
+        for (char x : T.solution(n, a, b)){
+            System.out.println(x);
         }
     }
 }

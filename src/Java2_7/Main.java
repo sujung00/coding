@@ -4,15 +4,17 @@ import java.util.Scanner;
 
 // 2023.06.20
 public class Main {
-    public int solution(int n, int[] numbers){
+    public int solution(int n, int[] arr){
         int answer = 0;
 
-        int addScore = 1;
+        int cnt = 0;
         for (int i = 0; i < n; i++){
-            if (numbers[i] == 1){
-                answer += addScore++;
-            } else {
-                addScore = 1;
+            if (arr[i] == 1) {
+                cnt++;
+                answer += cnt;
+            }
+            else {
+                cnt = 0;
             }
         }
 
@@ -22,10 +24,10 @@ public class Main {
         Main T = new Main();
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
-        int[] numbers = new int[n];
+        int[] arr = new int[n];
         for (int i = 0; i < n; i++){
-            numbers[i] = scanner.nextInt();
+            arr[i] = scanner.nextInt();
         }
-        System.out.println(T.solution(n, numbers));
+        System.out.println(T.solution(n, arr));
     }
 }

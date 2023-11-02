@@ -5,28 +5,27 @@ import java.util.Scanner;
 
 // 2023.06.19
 public class Main {
-    public ArrayList<Integer> solution(int n, int[] numbers){
-        ArrayList<Integer> answer = new ArrayList<Integer>();
+    public ArrayList<Integer> solution(int n, int[] arr){
+        ArrayList<Integer> answer = new ArrayList<>();
 
-        answer.add(numbers[0]);
+        answer.add(arr[0]);
         for (int i = 1; i < n; i++){
-            if (numbers[i] > numbers[i-1]){
-                answer.add(numbers[i]);
-            }
+            if (arr[i] > arr[i-1]) answer.add(arr[i]);
         }
 
         return answer;
     }
+
     public static void main(String[] args) {
         Main T = new Main();
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
-        int[] numbers = new int[n];
+        int[] arr = new int[n];
         for (int i = 0; i < n; i++){
-            numbers[i] = scanner.nextInt();
+            arr[i] = scanner.nextInt();
         }
-        for (int num : T.solution(n, numbers)){
-            System.out.print(num + " ");
+        for (int x : T.solution(n, arr)){
+            System.out.print(x + " ");
         }
     }
 }

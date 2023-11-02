@@ -4,15 +4,15 @@ import java.util.*;
 
 // 2023.06.20*
 public class Main {
-    public int[] solution(int n, Integer[] numbers){
+    public int[] solution(int n, int[] arr){
         int[] answer = new int[n];
 
         for (int i = 0; i < n; i++){
-            int grade = 1;
+            int cnt = 1;
             for (int j = 0; j < n; j++){
-                if (numbers[j] > numbers[i]) grade++;
+                if (arr[j] > arr[i]) cnt++;
             }
-            answer[i] = grade;
+            answer[i] = cnt;
         }
 
         return answer;
@@ -21,11 +21,11 @@ public class Main {
         Main T = new Main();
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
-        Integer[] numbers = new Integer[n];
+        int[] arr = new int[n];
         for (int i = 0; i < n; i++){
-            numbers[i] = scanner.nextInt();
+            arr[i] = scanner.nextInt();
         }
-        for (int x : T.solution(n, numbers)){
+        for (int x : T.solution(n, arr)){
             System.out.print(x + " ");
         }
     }

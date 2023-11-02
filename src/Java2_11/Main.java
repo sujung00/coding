@@ -8,19 +8,22 @@ public class Main {
         int answer = 0;
 
         int max = Integer.MIN_VALUE;
-        for (int i = 0; i < n; i++){ // 학생 i
+        // 몇 번 학생 기준
+        for (int i = 1; i <= n ; i++){
+            // 몇 번 학생과 같은지
             int cnt = 0;
-            for (int j = 0; j < n; j++){ // n명 학생
-                for (int k = 0; k < 5; k++){ // 5학년
-                    if (arr[j][k] == arr[i][k]) {
+            for (int j = 1; j <= n; j++){
+                // 학년
+                for (int k = 1; k <= 5; k++){
+                    if (arr[i][k] == arr[j][k]) {
                         cnt++;
                         break;
                     }
                 }
             }
-            if (cnt > max){
+            if (cnt > max) {
                 max = cnt;
-                answer = i+1;
+                answer = i;
             }
         }
 
@@ -30,9 +33,9 @@ public class Main {
         Main T = new Main();
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
-        int[][] arr = new int[n][5];
-        for (int i = 0; i < n; i++){
-            for (int j = 0; j < 5; j++){
+        int[][] arr = new int[n+1][6];
+        for (int i = 1; i <= n; i++){
+            for (int j = 1; j <= 5; j++){
                 arr[i][j] = scanner.nextInt();
             }
         }
