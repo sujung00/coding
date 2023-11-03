@@ -4,26 +4,20 @@ import java.util.*;
 
 // 2023.06.26*
 public class Main {
-    public int solution(String a, String b){
+    public int solution(String s, String t){
         int answer = 0;
 
-        Map<Character, Integer> amap = new HashMap<>();
-        Map<Character, Integer> bmap = new HashMap<>();
-        for (int i = 0; i < b.length()-1; i++){
-            amap.put(a.charAt(i), amap.getOrDefault(a.charAt(i), 0)+1);
+        HashMap<Character, Integer> smap = new HashMap<>();
+        HashMap<Character, Integer> tmap = new HashMap<>();
+        for (char x : t.toCharArray()){
+            tmap.put(x, tmap.getOrDefault(x, 0)+1);
         }
-        for (char x : b.toCharArray()){
-            bmap.put(x, bmap.getOrDefault(x, 0)+1);
-        }
-        int lt = 0;
-        for (int rt = b.length()-1; rt < a.length(); rt++){
-            amap.put(a.charAt(rt), amap.getOrDefault(a.charAt(rt), 0)+1);
-            if (amap.equals(bmap)) answer++;
-            amap.put(a.charAt(lt), amap.get(a.charAt(lt))-1);
-            if (amap.get(a.charAt(lt)) == 0){
-                amap.remove(a.charAt(lt));
+        for (int i = 0; i < s.length()-t.length()+1; i++){
+            for (int j = 0; j < t.length(); j++){
+                smap.put(s.charAt(i+j), smap.getOrDefault(s.charAt(i+j), 0)+1);
             }
-            lt++;
+            if (tmap.equals(smap)) answer++;
+            smap.clear();
         }
 
         return answer;
@@ -31,8 +25,8 @@ public class Main {
     public static void main(String[] args) {
         Main T = new Main();
         Scanner scanner = new Scanner(System.in);
-        String a = scanner.next();
-        String b = scanner.next();
-        System.out.println(T.solution(a, b));
+        String s = scanner.nextLine();
+        String t = scanner.nextLine();
+        System.out.println(T.solution(s, t));
     }
 }

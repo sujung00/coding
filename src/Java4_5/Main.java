@@ -7,6 +7,7 @@ public class Main {
     public int solution(int n, int k, int[] arr){
         int answer = -1;
 
+        // 중복 제거를 위해
         TreeSet<Integer> Tset = new TreeSet<>(Collections.reverseOrder());
         for (int i = 0; i < n; i++){
             for (int j = i+1; j < n; j++){
@@ -18,9 +19,7 @@ public class Main {
         int cnt = 0;
         for (int x : Tset){
             cnt++;
-            if (cnt == k){
-                return x;
-            }
+            if (cnt == k) return x;
         }
 
         return answer;

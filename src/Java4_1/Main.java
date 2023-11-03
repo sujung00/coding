@@ -9,14 +9,14 @@ public class Main {
     public char solution(int n, String str){
         char answer = ' ';
 
-        Map<Character, Integer> map = new HashMap<>();
+        HashMap<Character, Integer> hashMap = new HashMap<>();
         for (char x : str.toCharArray()){
-            map.put(x, map.getOrDefault(x,0)+1);
+            hashMap.put(x, hashMap.getOrDefault(x, 0)+1);
         }
-        int cnt = Integer.MIN_VALUE;
-        for(char x : map.keySet()){
-            if (map.get(x) > cnt) {
-                cnt = map.get(x);
+        int max = Integer.MIN_VALUE;
+        for (char x : hashMap.keySet()){
+            if (hashMap.get(x) > max){
+                max = hashMap.get(x);
                 answer = x;
             }
         }

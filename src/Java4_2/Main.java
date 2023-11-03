@@ -7,20 +7,20 @@ import java.util.Scanner;
 
 // 2023.06.24
 public class Main {
-    public String solution(String a, String b){
+    public String solution(String str1, String str2){
         String answer = "YES";
 
-        Map<Character, Integer> amap = new HashMap<>();
-        Map<Character, Integer> bmap = new HashMap<>();
-        for (char x : a.toCharArray()){
-            amap.put(x, amap.getOrDefault(x, 0)+1);
+        HashMap<Character, Integer> map1 = new HashMap<>();
+        for (char x : str1.toCharArray()){
+            map1.put(x, map1.getOrDefault(x, 0)+1);
         }
-        for (char x : b.toCharArray()){
-            bmap.put(x, bmap.getOrDefault(x, 0)+1);
+        HashMap<Character, Integer> map2 = new HashMap<>();
+        for (char x : str2.toCharArray()){
+            map2.put(x, map2.getOrDefault(x, 0)+1);
         }
-        for (char x : amap.keySet()){
-            if (amap.get(x) != bmap.get(x)){
-                return "NO";
+        for (char x : map1.keySet()){
+            if (!Objects.equals(map1.get(x), map2.get(x))){
+                answer = "NO";
             }
         }
 
@@ -29,8 +29,8 @@ public class Main {
     public static void main(String[] args) {
         Main T = new Main();
         Scanner scanner = new Scanner(System.in);
-        String a = scanner.next();
-        String b = scanner.next();
-        System.out.println(T.solution(a, b));
+        String str1 = scanner.nextLine();
+        String str2 = scanner.nextLine();
+        System.out.println(T.solution(str1, str2));
     }
 }

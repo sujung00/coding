@@ -1,28 +1,21 @@
 package Java4_3;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 // 2023.06.25*
 public class Main {
-    public ArrayList<Integer> solution(int n, int k, int[] arr){
-        ArrayList<Integer> answer = new ArrayList<>();
+    public int[] solution(int n, int k, int[] arr){
+        int[] answer = new int[k];
 
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < k-1; i++){
-            map.put(arr[i], map.getOrDefault(arr[i], 0) +1);
-        }
-        int lt = 0;
-        for (int rt = k-1; rt < n; rt++){
-            map.put(arr[rt], map.getOrDefault(arr[rt], 0)+1);
-            answer.add(map.size());
-            map.put(arr[lt], map.get(arr[lt])-1);
-            if (map.get(arr[lt]) == 0) {
-                map.remove(arr[lt]);
-            }
-            lt++;
+        HashMap<Integer, Integer> hashMap = new HashMap<>();
+        for (int i = 0; i < n-k+1; i++){
+            hashMap.put(arr[i], hashMap.getOrDefault(arr[i], 0)+1);
+            hashMap.put(arr[i+1], hashMap.getOrDefault(arr[i+1], 0)+1);
+            hashMap.put(arr[i+2], hashMap.getOrDefault(arr[i+2], 0)+1);
+            hashMap.put(arr[i+3], hashMap.getOrDefault(arr[i+3], 0)+1);
+            answer[i] = hashMap.size();
+            hashMap.clear();
         }
 
         return answer;
