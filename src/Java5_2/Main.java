@@ -10,15 +10,13 @@ public class Main {
 
         Stack<Character> stack = new Stack<>();
         for (char x : str.toCharArray()){
-            if (x == ')'){
+            if (x == '(' || Character.isAlphabetic(x)) {
+                stack.push(x);
+            } else {
                 while (stack.peek() != '('){
                     stack.pop();
                 }
-                if (stack.peek() == '('){
-                    stack.pop();
-                }
-            } else {
-                stack.push(x);
+                stack.pop();
             }
         }
         for (char x : stack){
