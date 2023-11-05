@@ -5,7 +5,7 @@ import java.util.Scanner;
 // 2023.06.18
 public class Main {
     public String solution(String str){
-        String answer = "";
+        StringBuilder answer = new StringBuilder();
 
         char[] c = new char[str.length()+1];
         for (int i = 0; i < str.length(); i++){
@@ -18,15 +18,15 @@ public class Main {
             if(c[i] == c[i+1]){
                 n++;
             } else {
-                answer += c[i];
+                answer.append(c[i]);
                 if (n > 1){
-                    answer += n;
+                    answer.append(n);
                 }
                 n = 1;
             }
         }
 
-        return answer;
+        return answer.toString();
    }
     public static void main(String[] args) {
         Main T = new Main();
