@@ -13,14 +13,8 @@ public class Main {
                 stack.push(str.charAt(i));
             } else {
                 stack.pop();
-                // 레이저인 경우
-                if (str.charAt(i-1) == '('){
-                    answer += stack.size();
-                }
-                // 막대기인 경우
-                else {
-                    answer++;
-                }
+                if (str.charAt(i-1) == '(') answer += stack.size();
+                else answer++;
             }
         }
 
@@ -29,7 +23,7 @@ public class Main {
     public static void main(String[] args) {
         Main T = new Main();
         Scanner scanner = new Scanner(System.in);
-        String str = scanner.next();
+        String str = scanner.nextLine();
         System.out.println(T.solution(str));
     }
 }

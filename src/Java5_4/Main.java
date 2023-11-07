@@ -11,33 +11,33 @@ public class  Main {
         Stack<Integer> stack = new Stack<>();
         for (char x : str.toCharArray()){
             if (x == '+'){
-                int b = stack.pop();
                 int a = stack.pop();
-                stack.push(a+b);
-            } else if (x == '-') {
                 int b = stack.pop();
+                stack.push(b+a);
+            } else if (x == '-'){
                 int a = stack.pop();
-                stack.push(a-b);
+                int b = stack.pop();
+                stack.push(b-a);
             } else if (x == '*'){
-                int b = stack.pop();
                 int a = stack.pop();
-                stack.push(a*b);
-            } else if (x == '/') {
                 int b = stack.pop();
+                stack.push(b*a);
+            } else if (x == '/'){
                 int a = stack.pop();
-                stack.push(a/b);
+                int b = stack.pop();
+                stack.push(b/a);
             } else {
-                stack.push(x-48);
+                stack.push(Integer.parseInt(String.valueOf(x)));
             }
         }
-        answer = stack.pop();
+        answer = stack.peek();
 
         return answer;
     }
     public static void main(String[] args) {
         Main T = new Main();
         Scanner scanner = new Scanner(System.in);
-        String str = scanner.next();
+        String str = scanner.nextLine();
         System.out.println(T.solution(str));
     }
 }
