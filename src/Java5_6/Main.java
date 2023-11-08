@@ -10,21 +10,18 @@ public class Main {
         int answer = 0;
 
         Queue<Integer> queue = new LinkedList<>();
+        int cnt = 0;
         for (int i = 1; i <= n; i++){
             queue.add(i);
         }
-        int cnt = 0;
         while (!queue.isEmpty()){
             cnt++;
+            int out = queue.poll();
+            if (cnt % k != 0){
+                queue.add(out);
+            }
             if (queue.size() == 1){
-                return queue.poll();
-            } else {
-                if (cnt % k == 0){
-                    queue.poll();
-                } else {
-                    int tmp = queue.poll();
-                    queue.add(tmp);
-                }
+                answer = queue.poll();
             }
         }
 
