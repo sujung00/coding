@@ -9,14 +9,17 @@ public class Main {
 
         int p = 1000;
         for (int i = 0; i < str.length(); i++){
-            if (str.charAt(i) == c) {
+            if (str.charAt(i) == c){
                 p = 0;
-            } else p++;
-            answer[i] = p;
+                answer[i] = p;
+            } else {
+                p++;
+                answer[i] = p;
+            }
         }
         p = 1000;
         for (int i = str.length()-1; i >= 0; i--){
-            if (str.charAt(i) == c) {
+            if (str.charAt(i) == c){
                 p = 0;
             } else {
                 p++;
