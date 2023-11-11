@@ -5,29 +5,25 @@ import java.util.Scanner;
 // 2023.06.18
 public class Main {
     public String solution(String str){
-        StringBuilder answer = new StringBuilder();
+        String answer = "";
 
-        char[] c = new char[str.length()+1];
-        for (int i = 0; i < str.length(); i++){
-            c[i] = str.charAt(i);
-        }
-        c[str.length()] = ' ';
-
-        int n = 1;
-        for (int i = 0; i < c.length-1; i++){
-            if(c[i] == c[i+1]){
-                n++;
+        str = str + " ";
+        int cnt = 1;
+        for (int i = 1; i < str.length(); i++){
+            if (str.charAt(i-1) == str.charAt(i)){
+                cnt++;
             } else {
-                answer.append(c[i]);
-                if (n > 1){
-                    answer.append(n);
+                if (cnt > 1){
+                    answer += str.charAt(i-1) + String.valueOf(cnt);
+                    cnt = 1;
+                } else {
+                    answer += str.charAt(i-1);
                 }
-                n = 1;
             }
         }
 
-        return answer.toString();
-   }
+        return answer;
+    }
     public static void main(String[] args) {
         Main T = new Main();
         Scanner scanner = new Scanner(System.in);
