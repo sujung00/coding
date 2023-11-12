@@ -8,7 +8,7 @@ public class Main {
         String answer = "";
 
         str = str.replaceAll("#", "1").replaceAll("[*]", "0");
-        for (int i = 0; i < str.length()-1; i+=7){
+        for (int i = 0; i < str.length()-1; i += 7){
             String tmp = str.substring(i, i+7);
             int num = Integer.valueOf(tmp, 2);
             char c = (char)num;
