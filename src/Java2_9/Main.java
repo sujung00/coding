@@ -6,8 +6,8 @@ import java.util.Scanner;
 public class Main {
     public int solution(int n, int[][] arr){
         int answer = Integer.MIN_VALUE;
-
         int sum1, sum2;
+
         for (int i = 0; i < n; i++){
             sum1 = sum2 = 0;
             for (int j = 0; j < n; j++){
