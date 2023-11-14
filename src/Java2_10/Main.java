@@ -13,9 +13,7 @@ public class Main {
             for (int j = 1; j <= n; j++){
                 int cnt = 0;
                 for (int k = 0; k < 4; k++){
-                    int a = i + dx[k];
-                    int b = j + dy[k];
-                    if (arr[i][j] > arr[a][b]){
+                    if (arr[i][j] > arr[i+dx[k]][j+dy[k]]){
                         cnt++;
                     } else {
                         break;
