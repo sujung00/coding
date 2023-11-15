@@ -8,12 +8,9 @@ public class Main {
         int answer = 0;
 
         int max = Integer.MIN_VALUE;
-        // 몇 번 학생 기준
         for (int i = 1; i <= n ; i++){
-            // 몇 번 학생과 같은지
             int cnt = 0;
             for (int j = 1; j <= n; j++){
-                // 학년
                 for (int k = 1; k <= 5; k++){
                     if (arr[i][k] == arr[j][k]) {
                         cnt++;
