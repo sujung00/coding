@@ -18,9 +18,7 @@ public class Main {
                     }
                     if(pi < pj) cnt++;
                 }
-                if (cnt == m){
-                    answer++;
-                }
+                if (cnt == m) answer++;
             }
         }
 
