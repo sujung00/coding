@@ -11,10 +11,11 @@ public class Main {
         Arrays.sort(arr2);
         int p1 = 0, p2 = 0;
         while (p1 < n && p2 < m){
-            if (arr1[p1] == arr2[p2]){
+            if (arr1[p1]==arr2[p2]){
                 answer.add(arr1[p1++]);
                 p2++;
-            } else if (arr1[p1] > arr2[p2]) p2++;
+            }
+            else if (arr1[p1] > arr2[p2]) p2++;
             else p1++;
         }
 
