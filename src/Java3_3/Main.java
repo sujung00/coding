@@ -18,9 +18,7 @@ public class Main {
         while (m < n){
             sum += arr[m];
             sum -= arr[m-k];
-            if (sum > answer){
-                answer = sum;
-            }
+            if (sum > answer) answer = sum;
             m++;
         }
 
