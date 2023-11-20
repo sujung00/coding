@@ -14,8 +14,8 @@ public class Main {
                 if (sum == m){
                     answer++;
                     break;
-                }else {
-                    sum -= arr[lt++];
+                } else {
+                    sum-=arr[lt++];
                     if (sum == m){
                         answer++;
                         break;
