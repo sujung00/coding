@@ -14,7 +14,7 @@ public class Main {
         int sum = 0, lt = 0;
         for (int rt = 0; rt < n/2+2; rt++){
             sum += arr[rt];
-            while (sum >= n){
+            while (sum>=n){
                 if (sum == n){
                     answer++;
                     break;
