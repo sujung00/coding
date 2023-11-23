@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 // 2023.06.24*
 public class Main {
-    public char solution(int n, String str){
+    public char solution(String str){
         char answer = ' ';
 
         HashMap<Character, Integer> hashMap = new HashMap<>();
@@ -28,6 +28,6 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
         String str = scanner.next();
-        System.out.println(T.solution(n, str));
+        System.out.println(T.solution(str));
     }
 }
