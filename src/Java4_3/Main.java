@@ -14,12 +14,15 @@ public class Main {
             hashMap.put(arr[i+1], hashMap.getOrDefault(arr[i+1], 0)+1);
             hashMap.put(arr[i+2], hashMap.getOrDefault(arr[i+2], 0)+1);
             hashMap.put(arr[i+3], hashMap.getOrDefault(arr[i+3], 0)+1);
+
             answer[i] = hashMap.size();
+
             hashMap.clear();
         }
 
         return answer;
     }
+
     public static void main(String[] args) {
         Main T = new Main();
         Scanner scanner = new Scanner(System.in);
