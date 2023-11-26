@@ -7,11 +7,12 @@ public class Main {
     public int solution(String s, String t){
         int answer = 0;
 
-        HashMap<Character, Integer> smap = new HashMap<>();
         HashMap<Character, Integer> tmap = new HashMap<>();
         for (char x : t.toCharArray()){
             tmap.put(x, tmap.getOrDefault(x, 0)+1);
         }
+
+        HashMap<Character, Integer> smap = new HashMap<>();
         for (int i = 0; i < s.length()-t.length()+1; i++){
             for (int j = 0; j < t.length(); j++){
                 smap.put(s.charAt(i+j), smap.getOrDefault(s.charAt(i+j), 0)+1);
