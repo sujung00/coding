@@ -5,15 +5,20 @@ import java.util.Scanner;
 
 // 2023.06.21
 public class Main {
-    public int[] solution(int n, int[] arr1, int m, int[] arr2){
+    public int[] solution(int n, int m, int[] arr1, int[] arr2){
         int[] answer = new int[n+m];
 
-        if (n >= 0) System.arraycopy(arr1, 0, answer, 0, n);
-        if (n + m - n >= 0) System.arraycopy(arr2, 0, answer, n, n + m - n);
+        for (int i = 0; i < n; i++){
+            answer[i] = arr1[i];
+        }
+        for (int i = n; i < n+m; i++){
+            answer[i] = arr2[i-n];
+        }
         Arrays.sort(answer);
 
         return answer;
     }
+
     public static void main(String[] args) {
         Main T = new Main();
         Scanner scanner = new Scanner(System.in);
@@ -27,7 +32,7 @@ public class Main {
         for (int i = 0; i < m; i++){
             arr2[i] = scanner.nextInt();
         }
-        for (int x : T.solution(n, arr1, m, arr2)){
+        for (int x : T.solution(n, m, arr1, arr2)){
             System.out.print(x + " ");
         }
     }

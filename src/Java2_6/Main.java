@@ -8,26 +8,30 @@ public class Main {
     public boolean isPrime(int n){
         boolean answer = true;
 
-        if (n < 2) answer = false;
+        if (n < 2) return false;
+        if (n == 2) return true;
+        else if (n == 3) return true;
         else {
             for (int i = 2; i < n; i++){
-                if (n % i == 0) {
-                    answer = false;
-                    break;
-                }
+                if (n%i == 0) return false;
             }
         }
 
         return answer;
     }
+
     public ArrayList<Integer> solution(int n, int[] arr){
         ArrayList<Integer> answer = new ArrayList<>();
 
-
         for (int i = 0; i < n; i++){
-            String num = new StringBuilder(String.valueOf(arr[i])).reverse().toString();
-            int check = Integer.parseInt(num);
-            if (isPrime(check)) answer.add(check);
+            int tmp = arr[i];
+            int res = 0;
+            while (tmp > 0){
+                int t = tmp % 10;
+                res = res*10+t;
+                tmp = tmp/10;
+            }
+            if (isPrime(res)) answer.add(res);
         }
 
         return answer;

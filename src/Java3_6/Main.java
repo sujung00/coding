@@ -5,8 +5,9 @@ import java.util.Scanner;
 // 2023.06.24*
 public class Main {
     public int solution(int n, int k, int[] arr){
-        int answer = 0, cnt = 0, lt = 0;
+        int answer = 0;
 
+        int cnt = 0, lt = 0;
         for (int rt = 0; rt < n; rt++){
             if (arr[rt] == 0) cnt++;
             while (cnt > k){

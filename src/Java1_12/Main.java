@@ -7,12 +7,12 @@ public class Main {
     public String solution(int n, String str){
         String answer = "";
 
-        str = str.replaceAll("#", "1").replaceAll("[*]", "0");
-        for (int i = 0; i < str.length()-1; i += 7){
-            String tmp = str.substring(i, i+7);
-            int num = Integer.valueOf(tmp, 2);
-            char c = (char)num;
-            answer += c;
+        for (int i = 0; i < str.length(); i=i+7){
+            String s = str.substring(i, i+7);
+            s = s.replaceAll("#", String.valueOf(1)).replaceAll("[*]", String.valueOf(0));
+            int num = Integer.valueOf(s, 2);
+            char result = (char)num;
+            answer += result;
         }
 
         return answer;

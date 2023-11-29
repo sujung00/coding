@@ -10,15 +10,14 @@ public class Main {
         str = str + " ";
         int cnt = 1;
         for (int i = 1; i < str.length(); i++){
-            if (str.charAt(i-1) == str.charAt(i)){
-                cnt++;
-            } else {
-                if (cnt > 1){
-                    answer += str.charAt(i-1) + String.valueOf(cnt);
-                    cnt = 1;
-                } else {
+            if (str.charAt(i) == str.charAt(i-1)) cnt++;
+            else {
+                if (cnt == 1){
                     answer += str.charAt(i-1);
+                }else {
+                    answer += str.charAt(i-1)+String.valueOf(cnt);
                 }
+                cnt = 1;
             }
         }
 

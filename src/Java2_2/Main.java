@@ -7,11 +7,11 @@ public class Main {
     public int solution(int n, int[] arr){
         int answer = 1;
 
-        int max = arr[0];
-        for (int x : arr){
-            if (x > max){
-                max = x;
+        int min = arr[0];
+        for (int i = 1; i < n; i++){
+            if (min < arr[i]) {
                 answer++;
+                min = arr[i];
             }
         }
 

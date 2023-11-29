@@ -10,7 +10,9 @@ public class Main {
 
         answer.add(arr[0]);
         for (int i = 1; i < n; i++){
-            if (arr[i] > arr[i-1]) answer.add(arr[i]);
+            if (arr[i] > arr[i-1]){
+                answer.add(arr[i]);
+            }
         }
 
         return answer;

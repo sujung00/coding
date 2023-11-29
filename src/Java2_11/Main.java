@@ -8,12 +8,13 @@ public class Main {
         int answer = 0;
 
         int max = Integer.MIN_VALUE;
-        for (int i = 1; i <= n ; i++){
+        for (int i = 1; i <= n; i++){
             int cnt = 0;
             for (int j = 1; j <= n; j++){
                 for (int k = 1; k <= 5; k++){
                     if (arr[i][k] == arr[j][k]) {
                         cnt++;
+                        // 학생 수를 세는 거기 때문에 여러명으로 count 되지 않게 break
                         break;
                     }
                 }
@@ -22,6 +23,7 @@ public class Main {
                 max = cnt;
                 answer = i;
             }
+
         }
 
         return answer;

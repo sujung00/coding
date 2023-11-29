@@ -4,33 +4,32 @@ import java.util.Scanner;
 
 // 2023.06.19
 public class Main {
-    public char RPS(int a, int b){
-        char winner = ' ';
-
-        // 1: 가위
-        // 2: 바위
-        // 3: 보
+    public char RCP(int a, int b){
+        //1:가위, 2:바위, 3:보
         if (a == 1){
-            if (b == 1) winner = 'D';
-            else if (b == 2) winner = 'B';
-            else if (b == 3) winner = 'A';
-        } else if (a == 2){
-            if (b == 1) winner = 'A';
-            else if (b == 2) winner = 'D';
-            else if (b == 3) winner = 'B';
-        } else if (a == 3){
-            if (b == 1) winner = 'B';
-            else if (b == 2) winner = 'A';
-            else if (b == 3) winner = 'D';
+            if (b == 1) return 'D';
+            else if (b == 2) return 'B';
+            else if (b == 3) return 'A';
+        }
+        else if (a == 2){
+            if (b == 1) return 'A';
+            else if (b == 2) return 'D';
+            else if (b == 3) return 'B';
+        }
+        else if (a == 3){
+            if (b == 1) return 'B';
+            else if (b == 2) return 'A';
+            else if (b == 3) return 'D';
         }
 
-        return winner;
+        return ' ';
     }
+
     public char[] solution(int n, int[] a, int[] b){
         char[] answer = new char[n];
 
         for (int i = 0; i < n; i++){
-            answer[i] = RPS(a[i], b[i]);
+            answer[i] = RCP(a[i], b[i]);
         }
 
         return answer;
