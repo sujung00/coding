@@ -5,14 +5,16 @@ import java.util.Scanner;
 // 2023.06.21* => runtime error
 public class Main {
     public int solution(int n, int k, int[] arr){
-        int answer, sum = 0;
+        int answer = 0;
 
+        int sum = 0;
         for (int i = 0; i < k; i++){
             sum += arr[i];
         }
         answer = sum;
         for (int i = k; i < n; i++){
-            sum += (arr[i] - arr[i-k]);
+            sum += arr[i];
+            sum -= arr[i-k];
             answer = Math.max(answer, sum);
         }
 

@@ -4,24 +4,25 @@ import java.util.*;
 
 // 2023.06.21
 public class Main {
-    public ArrayList<Integer> solution(int n, int m, int[] arr1, int[] arr2){
-        ArrayList<Integer> answer = new ArrayList<>();
+   public ArrayList<Integer> solution(int n, int m, int[] a, int[] b){
+       ArrayList<Integer> answer = new ArrayList<>();
 
-        Arrays.sort(arr1);
-        Arrays.sort(arr2);
-        int p1 = 0, p2 = 0;
-        while (p1 < n && p2 < m){
-            if (arr1[p1] == arr2[p2]){
-                answer.add(arr1[p1++]);
-                p2++;
-            }
-            else if (arr1[p1] < arr2[p2]) p1++;
-            else p2++;
-        }
+       Arrays.sort(a);
+       Arrays.sort(b);
+       int lt = 0, rt = 0;
+       while (lt < n && rt < m){
+           if (a[lt] == b[rt]){
+               answer.add(a[lt++]);
+               rt++;
+           } else if (a[lt] > b[rt]){
+               rt++;
+           } else {
+               lt++;
+           }
+       }
 
-
-        return answer;
-    }
+       return answer;
+   }
     public static void main(String[] args) {
         Main T = new Main();
         Scanner scanner = new Scanner(System.in);
