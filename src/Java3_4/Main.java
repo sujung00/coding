@@ -5,12 +5,12 @@ import java.util.Scanner;
 // 2023.06.23*
 public class Main {
     public int solution(int n, int m, int[] arr){
-        int answer = 0, sum = 0, lt = 0;
+        int answer = 0;
 
+        int lt = 0, sum = 0;
         for (int rt = 0; rt < n; rt++){
             sum += arr[rt];
             if (sum == m) answer++;
-            // sum 값이 m보다 클경우에는 lt를 계속 뺀다.
             while (sum >= m){
                 sum -= arr[lt++];
                 if (sum == m) answer++;
