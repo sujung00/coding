@@ -6,18 +6,18 @@ import java.util.Scanner;
 // 2023.06.25*
 public class Main {
     public int[] solution(int n, int k, int[] arr){
-        int[] answer = new int[k];
+        int[] answer = new int[n-k+1];
 
         HashMap<Integer, Integer> hashMap = new HashMap<>();
-        for (int i = 0; i < n-k+1; i++){
+        for (int i = 0; i < k; i++){
             hashMap.put(arr[i], hashMap.getOrDefault(arr[i], 0)+1);
-            hashMap.put(arr[i+1], hashMap.getOrDefault(arr[i+1], 0)+1);
-            hashMap.put(arr[i+2], hashMap.getOrDefault(arr[i+2], 0)+1);
-            hashMap.put(arr[i+3], hashMap.getOrDefault(arr[i+3], 0)+1);
-
-            answer[i] = hashMap.size();
-
-            hashMap.clear();
+            answer[0] = hashMap.size();
+        }
+        for (int i = k; i < n; i++){
+            hashMap.put(arr[i], hashMap.getOrDefault(arr[i], 0)+1);
+            hashMap.put(arr[i-k], hashMap.get(arr[i-k])-1);
+            if (hashMap.get(arr[i-k]) == 0) hashMap.remove(arr[i-k]);
+            answer[i-k+1] = hashMap.size();
         }
 
         return answer;

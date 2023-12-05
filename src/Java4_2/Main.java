@@ -1,31 +1,26 @@
 package Java4_2;
 
 import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
 import java.util.Scanner;
 
 // 2023.06.24
 public class Main {
-    public String solution(String str1, String str2){
-        String answer = "YES";
+    public String solution(String a, String b){
+        String answer = "NO";
 
-        HashMap<Character, Integer> map1 = new HashMap<>();
-        HashMap<Character, Integer> map2 = new HashMap<>();
-        for (char x : str1.toCharArray()){
-            map1.put(x, map1.getOrDefault(x, 0)+1);
+        HashMap<Character, Integer> aMap = new HashMap<>();
+        HashMap<Character, Integer> bMap = new HashMap<>();
+        for (char x : a.toCharArray()){
+            aMap.put(x, aMap.getOrDefault(x, 0)+1);
         }
-        for (char x : str2.toCharArray()){
-            map2.put(x, map2.getOrDefault(x, 0)+1);
+        for (char x : b.toCharArray()){
+            bMap.put(x, bMap.getOrDefault(x, 0)+1);
         }
-        for (char x : map1.keySet()){
-            if (!Objects.equals(map1.get(x), map2.get(x))){
-                answer = "NO";
-            }
-        }
+        if (aMap.equals(bMap)) return "YES";
 
         return answer;
     }
+
     public static void main(String[] args) {
         Main T = new Main();
         Scanner scanner = new Scanner(System.in);
