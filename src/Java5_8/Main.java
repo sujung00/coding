@@ -7,16 +7,17 @@ import java.util.Scanner;
 // 2023.07.02*
 public class Main {
     class Person{
-        int id, priority;
+        int danger;
+        int sequence;
 
-        public Person(int id, int priority){
-            this.id = id;
-            this.priority = priority;
+        public Person(int sequence, int danger){
+            this.danger = danger;
+            this.sequence = sequence;
         }
-
     }
+
     public int solution(int n, int m, int[] arr){
-        int answer = 1;
+        int answer = 0;
 
         Queue<Person> queue = new LinkedList<>();
         for (int i = 0; i < n; i++){
@@ -25,20 +26,21 @@ public class Main {
         while (!queue.isEmpty()){
             Person tmp = queue.poll();
             for (Person x : queue){
-                if (x.priority > tmp.priority){
-                    queue.add(tmp);
+                if (x.danger > tmp.danger){
+                    queue.offer(tmp);
                     tmp = null;
                     break;
                 }
             }
-            if (tmp != null){
-                if (tmp.id == m) return answer;
-                else answer++;
+            if (tmp != null) {
+                answer++;
+                if (tmp.sequence == m) return answer;
             }
         }
 
         return answer;
     }
+
     public static void main(String[] args) {
         Main T = new Main();
         Scanner scanner = new Scanner(System.in);

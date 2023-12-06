@@ -9,16 +9,17 @@ public class Main {
         int answer = 0;
 
         Stack<Integer> stack = new Stack<>();
-        for (int move : moves){
-            for (int i = 1; i <= n; i++){
-                if (board[i][move] != 0){
-                    if (!stack.isEmpty() && stack.peek() == board[i][move]){
-                        stack.pop();
+        for (int x : moves){
+            for (int i = 0; i < n; i++){
+                if (board[i][x-1] != 0) {
+                    int tmp = board[i][x-1];
+                    board[i][x-1] = 0;
+                    if (!stack.isEmpty() && tmp == stack.peek()){
                         answer += 2;
+                        stack.pop();
                     }else {
-                        stack.add(board[i][move]);
+                        stack.push(tmp);
                     }
-                    board[i][move] = 0;
                     break;
                 }
             }
@@ -31,9 +32,9 @@ public class Main {
         Main T = new Main();
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
-        int[][] board = new int[n+1][n+1];
-        for (int i = 1; i <= n; i++){
-            for (int j = 1; j <= n; j++){
+        int[][] board = new int[n][n];
+        for (int i = 0; i < n; i++){
+            for (int j = 0; j < n; j++){
                 board[i][j] = scanner.nextInt();
             }
         }

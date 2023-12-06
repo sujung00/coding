@@ -6,20 +6,21 @@ import java.util.*;
 
 public class Main {
     public String solution(String need, String plan){
-        String answer = "YES";
+        String answer = "NO";
 
-        Queue<Character> Q = new LinkedList<>();
+        Queue<Character> needQueue = new LinkedList<>();
+        Queue<Character> planQueue = new LinkedList<>();
         for (char x : need.toCharArray()){
-            Q.add(x);
+            needQueue.add(x);
         }
         for (char x : plan.toCharArray()){
-            if (Q.contains(x)){
-                if (x != Q.poll()){
-                    return "NO";
-                }
+            char tmp = needQueue.peek();
+            if (tmp == x) {
+                planQueue.add(x);
+                needQueue.add(needQueue.poll());
             }
         }
-        if (!Q.isEmpty()) return "NO";
+        if (needQueue.equals(planQueue)) return "YES";
 
         return answer;
     }

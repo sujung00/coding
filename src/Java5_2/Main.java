@@ -10,13 +10,12 @@ public class Main {
 
         Stack<Character> stack = new Stack<>();
         for (char x : str.toCharArray()){
-            if (x == '(' || Character.isAlphabetic(x)) {
-                stack.push(x);
-            } else {
-                while (stack.peek() != '('){
-                    stack.pop();
+            if (x == '(') stack.push(x);
+            else if (Character.isAlphabetic(x)) stack.push(x);
+            else {
+                while (true){
+                    if (stack.pop() == '(') break;
                 }
-                stack.pop();
             }
         }
         for (char x : stack){
